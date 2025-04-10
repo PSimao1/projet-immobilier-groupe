@@ -34,6 +34,6 @@ jobs:
         # Cette commande utilise sshpass pour se connecter en SSH au serveur et déployer les fichiers.
         run: |
           sshpass -e ssh -o StrictHostKeyChecking=no ${{ secrets.APP_USER }}@${{ secrets.APP_HOST }} -p 5022 "
-          cd laval/ &&  # Change de répertoire pour celui de ton projet
+          cd lemans/ &&  # Change de répertoire pour celui de ton projet
           git pull &&   # Récupère les dernières modifications du dépôt
           php composer.phar install"  # Installe les dépendances PHP définies dans le projet
