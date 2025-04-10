@@ -1,0 +1,42 @@
+# Déclencheurs de l'action : cette action se lance lors d'un 'push' ou d'une 'pull request'.
+name: run PHPCsFixer
+
+on: 
+  # L'action sera déclenchée lors de ces événements.
+    push:
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+
+jobs:
+  php-cs-fixer:
+    # Définit le système d'exploitation sur lequel les tests seront exécutés.
+    name: php cs fixer
+    runs-on: ubuntu-latest
+
+    steps:
+      # Etape 1 : Récupérer le code source du dépôt.
+      - name: Checkout code
+        # Cette action récupère tout le code de votre dépôt pour que les étapes suivantes puissent y travailler.
+        uses: actions/checkout@v4
+
+      # Etape 2 : Configurer PHP 8.3.
+      - name: set up php 8.3
+        # Cette action permet d'installer une version spécifique de PHP. Ici, PHP 8.3.
+        uses: shivammathur/setup-php@v2
+        with:
+          # Spécifie la version de PHP à utiliser.
+          php-version: '8.3'
+          # Installe les extensions PHP nécessaires pour le projet.
+          extensions: mbstring, tokenizer, xml
+          # Désactive la couverture de tests pour ne pas la prendre en compte lors de l'exécution des tests.
+
+      # Etape 3 : Installer les dépendances via Composer.
+      - name: install composer depandence
+        # Cette commande installe toutes les dépendances définies dans le fichier 'composer.json'.
+        run: composer install --no-progress --prefer-dist --no-suggest
+
+      # Etape 4 : Exécuter les tests PHPUnit.
+      - name: Php cs fixer
+        # Cette commande exécute les tests définis dans le projet avec PHPUnit.
+        run: ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php

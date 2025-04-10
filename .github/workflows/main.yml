@@ -1,0 +1,39 @@
+# Nom de l'action : Déploiement continu (CD)
+name: CD
+
+on:
+  # L'action se déclenche uniquement lors d'un 'push' sur la branche 'main'.
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    # Définit le système d'exploitation sur lequel les étapes vont être exécutées.
+    runs-on: ubuntu-latest
+
+    # Variables d'environnement nécessaires pour la connexion SSH.
+    env:
+      # La variable SSHPASS contient le mot de passe pour l'utilisateur SSH, stocké dans les secrets GitHub pour la sécurité.
+      SSHPASS: ${{ secrets.APP_PASS }}
+
+    steps:
+      # Étape 1 : Récupérer le code source du dépôt.
+      - name: Checkout repository
+        # Cette action permet de récupérer tout le code de ton dépôt pour le déployer.
+        uses: actions/checkout@v4
+
+      # Étape 2 : Mettre à jour les paquets et installer 'sshpass' (outil pour gérer les mots de passe SSH dans les scripts).
+      - name: APT UPDATE and INSTALL SSHPASS
+        # Cette commande met à jour les paquets de l'OS et installe sshpass pour se connecter en SSH avec mot de passe.
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sshpass
+
+      # Étape 3 : Déployer l'application sur le serveur distant via SSH.
+      - name: Deploy application
+        # Cette commande utilise sshpass pour se connecter en SSH au serveur et déployer les fichiers.
+        run: |
+          sshpass -e ssh -o StrictHostKeyChecking=no ${{ secrets.APP_USER }}@${{ secrets.APP_HOST }} -p 5022 "
+          cd laval/ &&  # Change de répertoire pour celui de ton projet
+          git pull &&   # Récupère les dernières modifications du dépôt
+          php composer.phar install"  # Installe les dépendances PHP définies dans le projet

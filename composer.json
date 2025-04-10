@@ -1,0 +1,20 @@
+{
+    "name": "projet/cityscape",
+    "description": "projet groupe Laval",
+    "autoload": {
+        "psr-4": {
+            "Projet\\Cityscape\\": "src/",
+            "Tests\\": "tests"
+        }
+    },
+    "authors": [
+        {
+            "name": "Maelle",
+            "email": "toto@toto.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^12.1",
+        "friendsofphp/php-cs-fixer": "^3.75"
+    }
+}
