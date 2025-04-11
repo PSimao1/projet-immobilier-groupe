@@ -19,8 +19,6 @@
         "friendsofphp/php-cs-fixer": "^3.75"
     },
     "require": {
-        "guzzlehttp/psr7": "^2.7",
-        "laminas/laminas-http": "^2.21",
-        "laminas/laminas-diactoros": "^3.5"
+        "guzzlehttp/psr7": "^2.7"
     }
 }
