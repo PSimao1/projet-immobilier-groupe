@@ -1,20 +1,26 @@
 {
     "name": "projet/cityscape",
-    "description": "projet groupe Laval",
+    "description": "projet groupe Le Mans",
     "autoload": {
         "psr-4": {
-            "Projet\\Cityscape\\": "src/",
+            "Framework\\": "src/Framework",
+            "App\\": "src",
             "Tests\\": "tests"
         }
     },
     "authors": [
         {
-            "name": "Maelle",
+            "name": "Jane Doe",
             "email": "toto@toto.com"
         }
     ],
     "require-dev": {
         "phpunit/phpunit": "^12.1",
         "friendsofphp/php-cs-fixer": "^3.75"
+    },
+    "require": {
+        "guzzlehttp/psr7": "^2.7",
+        "laminas/laminas-http": "^2.21",
+        "laminas/laminas-diactoros": "^3.5"
     }
 }
