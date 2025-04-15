@@ -19,6 +19,11 @@
         "friendsofphp/php-cs-fixer": "^3.75"
     },
     "require": {
-        "guzzlehttp/psr7": "^2.7"
+        "guzzlehttp/psr7": "^2.7",
+        "http-interop/response-sender": "*",
+        "twig/twig": "*",
+        "laminas/laminas-diactoros": "^3.5",
+        "laminas/laminas-router": "*",
+        "laminas/laminas-http": "^2.21"
     }
 }

@@ -7,6 +7,23 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class App 
 {
+    private $modules = [];
+    
+    private $router;
+
+    public function __construct(array $modules = [], array $dependencies = [])
+    {
+        $this->router = new Router();
+        if (array_key_exists('renderer', $dependencies)) {
+            $dependencies['renderer']->addGlobal('router', $this->router);
+        }
+        
+        foreach ($modules as $module) {
+            $this->modules[] = new $module($this->router, $dependencies['renderer']);
+        }
+
+    }
+
     public function run(ServerRequestInterface $request): ResponseInterface
     {
         $uri= $request->getUri()->getPath();
@@ -16,9 +33,14 @@ class App
                 ->withStatus(301)
                 ->withHeader('Location', substr($uri, 0, -1));
         }
-        
+        $route = $this->router->match($request);
+        $response = call_user_func_array($route->getCallback(), [$request]);
+
         if($uri === '/blog') {
-            return new Response(200, [],'<h1>Bienvenue sur le blog</h1>');
+            return new Response(200, [], $response);
+
+        }elseif ($response instanceof ResponseInterface) {
+            
         }
 
         
