@@ -1,0 +1,15 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+<h1>Bienvenue sur les propriétés</h1>
+
+<ul>
+    <li><a href="{{ router.generateUri('properties.show', {slug: 'propriete-un'}) }}">Article 1</a></li>
+    <li>Article 1</li>
+    <li>Article 1</li>
+    <li>Article 1</li>
+    <li>Article 1</li>
+    <li>Article 1</li>
+</ul>
+{% endblock %}

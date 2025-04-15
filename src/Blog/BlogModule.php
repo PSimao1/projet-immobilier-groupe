@@ -19,11 +19,11 @@ class BlogModule
 
         $this->renderer = $renderer;
 
-        $a = $this->renderer->addPath('blog', __DIR__ . '/views');
+        $this->renderer->addPath('blog', __DIR__ . '/views');
 
         $router->get('/blog', [$this, 'index'], 'blog.index');
         
-        $router->get('/blog/{slug:[a-z\-0-9]+}', [$this, 'show'], 'blog.show');
+        $router->get('/blog/{slug}', [$this, 'show'], 'blog.show');
     }
     
     /**
