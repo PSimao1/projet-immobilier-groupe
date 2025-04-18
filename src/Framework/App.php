@@ -13,7 +13,7 @@ class App
 
     private $modules = [];
     
-    private $router;
+
 
     public function __construct(ContainerInterface $container, array $modules = [])
     {
@@ -44,6 +44,7 @@ class App
         $request = array_reduce(array_keys($params), function ($request, $key) use ($params) {
             return $request->withAttribute($key, $params[$key]);
         }, $request);
+
         $callback = $route->getCallback();
         
         if (is_string($callback)) {

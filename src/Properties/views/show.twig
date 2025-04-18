@@ -4,6 +4,739 @@
 
 {% block body %}
 
-<h1>Bienvenue sur la {{ slug }}</h1>
 
+<div class="overlay"></div>
+<!--==================== Overlay End ====================-->
+
+<!--==================== Sidebar Overlay End ====================-->
+<div class="side-overlay"></div>
+<!--==================== Sidebar Overlay End ====================-->
+
+<!-- ==================== Scroll to Top End Here ==================== -->
+<div class="progress-wrap">
+  <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+  </svg>
+</div>
+<!-- ==================== Scroll to Top End Here ==================== -->
+
+<!-- ==================== Mobile Menu Start Here ==================== -->
+<div class="mobile-menu d-lg-none d-block">
+    <button type="button" class="close-button"> <i class="las la-times"></i> </button>
+    <div class="mobile-menu__inner">
+        <a href="index.html" class="mobile-menu__logo">
+            <img src="assets/images/logo/logo.png" alt="Logo">
+        </a>
+        <div class="mobile-menu__menu">
+            
+<ul class="nav-menu flx-align nav-menu--mobile">
+    <li class="nav-menu__item has-submenu">
+        <a href="javascript:void(0)" class="nav-menu__link">Home</a>
+        <ul class="nav-submenu">
+            <li class="nav-submenu__item">
+                <a href="index.html" class="nav-submenu__link"> Home One</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-2.html" class="nav-submenu__link"> Home Two</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-3.html" class="nav-submenu__link"> Home Three</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-4.html" class="nav-submenu__link"> Home Four</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-5.html" class="nav-submenu__link"> Home Five</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-6.html" class="nav-submenu__link"> Home Video</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-7.html" class="nav-submenu__link"> Home Map</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-menu__item has-submenu">
+        <a href="javascript:void(0)" class="nav-menu__link">Pages</a>
+         <ul class="nav-submenu">
+            <li class="nav-submenu__item">
+                <a href="property.html" class="nav-submenu__link"> Property</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="property-sidebar.html" class="nav-submenu__link"> Property Sidebar </a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="property-details.html" class="nav-submenu__link"> Property Details</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="add-listing.html" class="nav-submenu__link"> Add New Listing</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="map-location.html" class="nav-submenu__link"> Map Location</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="about.html" class="nav-submenu__link"> About Us</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="faq.html" class="nav-submenu__link"> FAQ</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="checkout.html" class="nav-submenu__link"> Checkout</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="cart.html" class="nav-submenu__link"> Cart</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="login.html" class="nav-submenu__link"> Login</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="account.html" class="nav-submenu__link"> Account</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-menu__item has-submenu">
+        <a href="javascript:void(0)" class="nav-menu__link">Project</a>
+         <ul class="nav-submenu">
+            <li class="nav-submenu__item">
+                <a href="project.html" class="nav-submenu__link"> Project </a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="project-details.html" class="nav-submenu__link">Project Details</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-menu__item has-submenu">
+        <a href="javascript:void(0)" class="nav-menu__link">Blog</a>
+         <ul class="nav-submenu">
+            <li class="nav-submenu__item">
+                <a href="blog-classic.html" class="nav-submenu__link"> Blog Classic</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="blog-details.html" class="nav-submenu__link"> Blog Details</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-menu__item">
+        <a href="contact.html" class="nav-menu__link">Contact</a>
+    </li>
+</ul>
+            <a href="#" class="btn btn-outline-light d-lg-none d-block mt-4">Sell Property <span class="icon-right text-gradient"> <i class="fas fa-arrow-right"></i> </span> </a>
+        </div>
+    </div>
+</div>
+<!-- ==================== Mobile Menu End Here ==================== -->
+
+
+<!-- ==================== Right Offcanvas Start Here ==================== -->
+<div class="common-offcanvas d-lg-block d-none">
+    <div class="flx-between">
+        <a href="index.html" class="mobile-menu__logo">
+            <img src="assets/images/logo/white-logo.png" alt="Logo">
+        </a>
+        <button type="button" class="close-button d-flex position-relative top-0 end-0"> <i class="las la-times"></i> </button>
+    </div>
+
+    <div class="search-box mt-5">
+        <form action="#">
+            <input type="text" class="common-input common-input--light" placeholder="Search...">
+            <button type="submit" class="icon"> <i class="fas fa-search"></i> </button>
+        </form>
+    </div>
+
+    <ul class="address-list mt-5">
+        <li class="address-list__item flx-align">
+            <span class="address-list__icon"><i class="fas fa-map-marker-alt"></i></span>
+            <div class="address-list__content">
+                <p class="address-list__text">Burmsille Street, MN 55337, <br> United States</p>
+            </div>
+        </li>
+        <li class="address-list__item flx-align">
+            <span class="address-list__icon"> <i class="fas fa-phone"></i></span>
+            <div class="address-list__content">
+                <a href="tel:" class="address-list__text">+(1) 123 456 7890 </a>
+                <a href="tel:" class="address-list__text">+(1) 098 765 4321 </a>
+            </div>
+        </li>
+        <li class="address-list__item flx-align">
+            <span class="address-list__icon"> <i class="fas fa-envelope"></i></span>
+            <div class="address-list__content">
+                <a href="mailto:" class="address-list__text"> info@driller.com</a>
+                <a href="mailto:" class="address-list__text">info.example@driller.com</a>
+            </div>
+        </li>
+    </ul>
+
+    <div class="google-map mt-5">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1511.2499674845235!2d-73.99553882767792!3d40.75102778252164!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1686536419224!5m2!1sen!2sbd" loading="lazy" class="w-100 h-100"></iframe>
+    </div>
+
+    <ul class="social-list">
+    <li class="social-list__item"><a href="https://www.facebook.com" class="social-list__link flx-center"><i class="fab fa-facebook-f"></i></a> </li>
+    <li class="social-list__item"><a href="https://www.twitter.com" class="social-list__link flx-center"> <i class="fab fa-twitter"></i></a></li>
+    <li class="social-list__item"><a href="https://www.linkedin.com" class="social-list__link flx-center"> <i class="fab fa-linkedin-in"></i></a></li>
+    <li class="social-list__item"><a href="https://www.pinterest.com" class="social-list__link flx-center"> <i class="fab fa-instagram"></i></a></li>
+</ul>
+    
+</div>
+<!-- ==================== Right Offcanvas End Here ==================== -->
+
+
+
+<!-- ==================== Header Start Here ==================== -->
+<header class="header dark-header has-border">
+    <div class="container container-two">
+        <nav class="header-inner flx-between">
+            <!-- Logo Start -->
+            <div class="logo">
+                <a href="index.html" class="link">
+                    <img src="assets/images/logo/white-logo.png" alt="Logo">
+                </a>
+            </div>
+            <!-- Logo End -->
+
+            <!-- Menu Start  -->
+            <div class="header-menu d-lg-block d-none ">
+                
+<ul class="nav-menu flx-align ">
+    <li class="nav-menu__item has-submenu">
+        <a href="javascript:void(0)" class="nav-menu__link">Home</a>
+        <ul class="nav-submenu">
+            <li class="nav-submenu__item">
+                <a href="index.html" class="nav-submenu__link"> Home One</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-2.html" class="nav-submenu__link"> Home Two</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-3.html" class="nav-submenu__link"> Home Three</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-4.html" class="nav-submenu__link"> Home Four</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-5.html" class="nav-submenu__link"> Home Five</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-6.html" class="nav-submenu__link"> Home Video</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-7.html" class="nav-submenu__link"> Home Map</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-menu__item has-submenu">
+        <a href="javascript:void(0)" class="nav-menu__link">Pages</a>
+         <ul class="nav-submenu">
+            <li class="nav-submenu__item">
+                <a href="property.html" class="nav-submenu__link"> Property</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="property-sidebar.html" class="nav-submenu__link"> Property Sidebar </a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="property-details.html" class="nav-submenu__link"> Property Details</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="add-listing.html" class="nav-submenu__link"> Add New Listing</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="map-location.html" class="nav-submenu__link"> Map Location</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="about.html" class="nav-submenu__link"> About Us</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="faq.html" class="nav-submenu__link"> FAQ</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="checkout.html" class="nav-submenu__link"> Checkout</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="cart.html" class="nav-submenu__link"> Cart</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="login.html" class="nav-submenu__link"> Login</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="account.html" class="nav-submenu__link"> Account</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-menu__item has-submenu">
+        <a href="javascript:void(0)" class="nav-menu__link">Project</a>
+         <ul class="nav-submenu">
+            <li class="nav-submenu__item">
+                <a href="project.html" class="nav-submenu__link"> Project </a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="project-details.html" class="nav-submenu__link">Project Details</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-menu__item has-submenu">
+        <a href="javascript:void(0)" class="nav-menu__link">Blog</a>
+         <ul class="nav-submenu">
+            <li class="nav-submenu__item">
+                <a href="blog-classic.html" class="nav-submenu__link"> Blog Classic</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="blog-details.html" class="nav-submenu__link"> Blog Details</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-menu__item">
+        <a href="contact.html" class="nav-menu__link">Contact</a>
+    </li>
+</ul>
+            </div>
+            <!-- Menu End  -->
+
+            <!-- Header Right start -->
+            <div class="header-right flx-align">
+                <a href="property-details.html" class="btn btn-outline-main btn-outline-main-dark d-lg-block d-none"> Add Listing 
+                    <span class="icon-right icon"> 
+                        <i class="fas fa-arrow-right"></i> 
+                    </span>
+                 </a>
+                <button type="button" class="toggle-mobileMenu d-lg-none ms-3"> <i class="las la-bars"></i> </button>
+            </div>
+            <!-- Header Right End  -->
+        </nav>
+    </div>
+</header>
+<!-- ==================== Header End Here ==================== -->
+
+
+<!-- ==================== Breadcrumb Start Here ==================== -->
+<section class="breadcrumb padding-y-120">
+    <img src="assets/images/thumbs/breadcrumb-img.png" alt="" class="breadcrumb__img">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="breadcrumb__wrapper">
+                    <h2 class="breadcrumb__title"> Property Details</h2>
+                    <ul class="breadcrumb__list">
+                        <li class="breadcrumb__item"><a href="index.html" class="breadcrumb__link"> <i class="las la-home"></i> Home</a> </li>
+                        <li class="breadcrumb__item"><i class="fas fa-angle-right"></i></li>
+                        <li class="breadcrumb__item"> <span class="breadcrumb__item-text"> Property Details </span> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ==================== Breadcrumb End Here ==================== -->
+
+<section class="property-details padding-y-120">
+    <div class="container container-two">
+        <div class="row gy-4">
+            <div class="col-lg-8">
+                <div class="row gy-4">
+                    <div class="col-sm-12 col-6">
+                        <div class="property-details__thumb">
+                            <img src="assets/images/thumbs/property-details-1.png" alt="" class="cover-img">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-6">
+                        <div class="property-details__thumb">
+                            <img src="assets/images/thumbs/property-details-2.png" alt="" class="cover-img">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-6">
+                        <div class="property-details__thumb">
+                            <img src="assets/images/thumbs/property-details-3.png" alt="" class="cover-img">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-6">
+                        <div class="property-details__thumb">
+                            <img src="assets/images/thumbs/property-details-4.png" alt="" class="cover-img">
+                        </div>
+                    </div>
+                </div>
+                <div class="property-details-wrapper">
+                    <div class="property-details-item">
+                        <h6 class="property-details-item__title">Preview</h6>
+                        <div class="property-details-item__content">
+                            <div class="row gy-4 gy-lg-5">
+                                <div class="col-sm-4 col-6">
+                                    <div class="amenities-content d-flex align-items-center">
+                                        <span class="amenities-content__icon">
+                                            <img src="assets/images/icons/amenities1.svg" alt="">
+                                        </span>
+                                        <div class="amenities-content__inner">
+                                            <span class="amenities-content__text">Room</span>
+                                            <h6 class="amenities-content__title mb-0 font-16">4 Room</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <div class="amenities-content d-flex align-items-center">
+                                        <span class="amenities-content__icon">
+                                            <img src="assets/images/icons/amenities2.svg" alt="">
+                                        </span>
+                                        <div class="amenities-content__inner">
+                                            <span class="amenities-content__text">Bed</span>
+                                            <h6 class="amenities-content__title mb-0 font-16">3 Beds</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <div class="amenities-content d-flex align-items-center">
+                                        <span class="amenities-content__icon">
+                                            <img src="assets/images/icons/amenities3.svg" alt="">
+                                        </span>
+                                        <div class="amenities-content__inner">
+                                            <span class="amenities-content__text">Bath</span>
+                                            <h6 class="amenities-content__title mb-0 font-16">2 Baths</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <div class="amenities-content d-flex align-items-center">
+                                        <span class="amenities-content__icon">
+                                            <img src="assets/images/icons/amenities4.svg" alt="">
+                                        </span>
+                                        <div class="amenities-content__inner">
+                                            <span class="amenities-content__text">Space</span>
+                                            <h6 class="amenities-content__title mb-0 font-16">3 Space</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <div class="amenities-content d-flex align-items-center">
+                                        <span class="amenities-content__icon">
+                                            <img src="assets/images/icons/amenities5.svg" alt="">
+                                        </span>
+                                        <div class="amenities-content__inner">
+                                            <span class="amenities-content__text">Size</span>
+                                            <h6 class="amenities-content__title mb-0 font-16">1020 sqft</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-6">
+                                    <div class="amenities-content d-flex align-items-center">
+                                        <span class="amenities-content__icon">
+                                            <img src="assets/images/icons/amenities6.svg" alt="">
+                                        </span>
+                                        <div class="amenities-content__inner">
+                                            <span class="amenities-content__text">Property Type</span>
+                                            <h6 class="amenities-content__title mb-0 font-16">Apartment</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-details-item">
+                        <h6 class="property-details-item__title">Features</h6>
+                        <div class="property-details-item__content">
+                            <div class="row gy-2">
+                                <div class="col-sm-6">
+                                    <ul class="check-list">
+                                        <li class="check-list__item d-flex align-items-center">
+                                            <span class="icon"><i class="fas fa-check"></i></span>
+                                            <span class="text">Dream Property Solutions</span>
+                                        </li>
+                                        <li class="check-list__item d-flex align-items-center">
+                                            <span class="icon"><i class="fas fa-check"></i></span>
+                                            <span class="text">Secure Property Partners</span>
+                                        </li>
+                                        <li class="check-list__item d-flex align-items-center">
+                                            <span class="icon"><i class="fas fa-check"></i></span>
+                                            <span class="text">Doors to Your Future</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="check-list">
+                                        <li class="check-list__item d-flex align-items-center">
+                                            <span class="icon"><i class="fas fa-check"></i></span>
+                                            <span class="text">Prestige Property Management</span>
+                                        </li>
+                                        <li class="check-list__item d-flex align-items-center">
+                                            <span class="icon"><i class="fas fa-check"></i></span>
+                                            <span class="text">Global Real Estate Investments</span>
+                                        </li>
+                                        <li class="check-list__item d-flex align-items-center">
+                                            <span class="icon"><i class="fas fa-check"></i></span>
+                                            <span class="text">You Home with Experience</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="property-details-item">
+                        <h6 class="property-details-item__title">Address</h6>
+                        <div class="property-details-item__content">
+                            <div class="row gy-4">
+                                <div class="col-6">
+                                    <div class="address-content d-flex gap-4 align-items-center">
+                                        <span class="address-content__text font-18">Address</span>
+                                        <h6 class="address-content__title font-15 mb-0">Mirpur 1,Chineese</h6>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="address-content d-flex gap-4 align-items-center">
+                                        <span class="address-content__text font-18">Code</span>
+                                        <h6 class="address-content__title font-15 mb-0">2365</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="address-map">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1150112.1628856962!2d44.64619029447154!3d23.086651461779507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43348a67e24b%3A0xff45e502e1ceb7e2!2sBurj%20Khalifa!5e0!3m2!1sen!2sbd!4v1707037970965!5m2!1sen!2sbd" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="property-details-item">
+                        <h6 class="property-details-item__title">House</h6>
+                        <div class="property-details-item__content">
+                            <div class="house-content position-relative">
+                                <img src="assets/images/thumbs/house.png" alt="">
+                                <a href="https://www.youtube.com/watch?v=pPl3ZZdTP3g" class="popup-video-link video-popup__button style-two">
+                                    <i class="fas fa-play text-gradient"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="common-sidebar-wrapper">
+                    <div class="common-sidebar">
+    <h6 class="common-sidebar__title"> Category </h6>
+    <ul class="category-list">
+        <li class="category-list__item">
+            <a href="blog-classic.html" class="category-list__link flx-between">
+                <span class="text">Prime Investments</span>
+                <span class="number">(1)</span>
+            </a>
+        </li>
+        <li class="category-list__item">
+            <a href="blog-classic.html" class="category-list__link flx-between">
+                <span class="text">ProHome Finders</span>
+                <span class="number"> (8) </span>
+            </a>
+        </li>
+        <li class="category-list__item">
+            <a href="blog-classic.html" class="category-list__link flx-between">
+                <span class="text">SmartHouse Agency</span>
+                <span class="number"> (3) </span>
+            </a>
+        </li>
+        <li class="category-list__item">
+            <a href="blog-classic.html" class="category-list__link flx-between">
+                <span class="text">Secure Property Partners</span>
+                <span class="number"> (5) </span>
+            </a>
+        </li>
+    </ul>
+</div>
+                    <div class="common-sidebar">
+    <h6 class="common-sidebar__title"> Recent Post </h6>
+    <div class="latest-blog">
+        <div class="latest-blog__thumb">
+            <a href="blog-details.html"> <img src="assets/images/thumbs/latest-blog1.png" class="cover-img" alt=""></a>
+        </div>
+        <div class="latest-blog__content">
+            <span class="latest-blog__category font-12 flx-align gap-1">
+                <span class="icon text-gradient"><i class="fas fa-folder-open"></i></span>
+             Category</span>
+            <h6 class="latest-blog__title">
+                <a href="blog-details.html">A picture is worth standard and stand us return</a>
+            </h6>
+        </div>
+    </div>
+    <div class="latest-blog">
+        <div class="latest-blog__thumb">
+            <a href="blog-details.html"> <img src="assets/images/thumbs/latest-blog2.png" class="cover-img" alt=""></a>
+        </div>
+        <div class="latest-blog__content">
+            <span class="latest-blog__category font-12 flx-align gap-1">
+                <span class="icon text-gradient"><i class="fas fa-folder-open"></i></span>
+             Category</span>
+            <h6 class="latest-blog__title">
+                <a href="blog-details.html">Your journ homeownership starts here</a>
+            </h6>
+        </div>
+    </div>
+    <div class="latest-blog">
+        <div class="latest-blog__thumb">
+            <a href="blog-details.html"> <img src="assets/images/thumbs/latest-blog3.png" class="cover-img" alt=""></a>
+        </div>
+        <div class="latest-blog__content">
+            <span class="latest-blog__category font-12 flx-align gap-1">
+                <span class="icon text-gradient"><i class="fas fa-folder-open"></i></span>
+             Category</span>
+            <h6 class="latest-blog__title">
+                <a href="blog-details.html">Trust us to guide you the a through the process</a>
+            </h6>
+        </div>
+    </div>
+</div>
+                    <div class="common-sidebar">
+    <h6 class="common-sidebar__title"> Properties </h6>
+    <div class="row gy-4">
+        <div class="col-lg-6 col-sm-4 col-6">
+            <a href="property.html" class="properties-item d-block w-100">
+                <img src="assets/images/thumbs/properties-1.png" alt="Property Image" class="cover-img">
+                <span class="properties-item__text">Relax House</span>
+            </a>
+        </div>
+        <div class="col-lg-6 col-sm-4 col-6">
+            <a href="property.html" class="properties-item d-block w-100">
+                <img src="assets/images/thumbs/properties-2.png" alt="Property Image" class="cover-img">
+                <span class="properties-item__text">Hunting Adventure</span>
+            </a>
+        </div>
+        <div class="col-lg-6 col-sm-4 col-6">
+            <a href="property.html" class="properties-item d-block w-100">
+                <img src="assets/images/thumbs/properties-3.png" alt="Property Image" class="cover-img">
+                <span class="properties-item__text">Homeowner ship</span>
+            </a>
+        </div>
+        <div class="col-lg-6 col-sm-4 col-6">
+            <a href="property.html" class="properties-item d-block w-100">
+                <img src="assets/images/thumbs/properties-4.png" alt="Property Image" class="cover-img">
+                <span class="properties-item__text">Real Dreams</span>
+            </a>
+        </div>
+        <div class="col-lg-6 col-sm-4 col-6">
+            <a href="property.html" class="properties-item d-block w-100">
+                <img src="assets/images/thumbs/properties-5.png" alt="Property Image" class="cover-img">
+                <span class="properties-item__text">New Doors</span>
+            </a>
+        </div>
+        <div class="col-lg-6 col-sm-4 col-6">
+            <a href="property.html" class="properties-item d-block w-100">
+                <img src="assets/images/thumbs/properties-6.png" alt="Property Image" class="cover-img">
+                <span class="properties-item__text">The Heart</span>
+            </a>
+        </div>
+    </div>
+</div>  
+
+
+                </div>
+            </div>
+         </div>
+    </div>
+</section>
+
+
+
+<!-- ============================= CTA section Start ===================== -->
+<section class="cta padding-b-120">
+    <div class="container container-two">
+        <div class="cta-box flx-between gap-2">
+            <div class="cta-content">
+                <h2 class="cta-content__title">Subscribe To Our <span class="text-gradient">Newsletter</span> </h2>
+                <p class="cta-content__desc">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                <form action="#" class="cta-content__form d-flex align-items-center gap-2">
+                    <div class="position-relative w-100">
+                        <input type="text" class="common-input common-input--withLeftIcon w-100" placeholder="Enter Your Email Address">
+                        <span class="input-icon input-icon--left text-gradient font-20 line-height-1"><i class="far fa-envelope"></i></span>
+                    </div>
+                    <button type="submit" class="btn btn-main text-uppercase flex-shrink-0"> Subscribe <span class="text">Now</span> </button>
+                </form>
+            </div>
+            <div class="cta-content__thumb d-xl-block d-none">
+                <img src="assets/images/thumbs/cta-img.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ============================= CTA section End ===================== -->
+
+
+<!-- ==================== Footer Start Here ==================== -->
+<footer class="footer padding-y-120 ">
+    <div class="container container-two">
+        <div class="row gy-5">
+            <div class="col-xl-3 col-sm-6 col-xsm-6">
+                <div class="footer-item">
+                    <div class="footer-item__logo">
+                        <a href="index.html"> <img src="assets/images/logo/white-logo.png" alt=""></a>
+                    </div>
+                    <p class="footer-item__desc">It is a long established fact that a reader will be distracted</p>
+                    <ul class="social-list">
+    <li class="social-list__item"><a href="https://www.facebook.com" class="social-list__link flx-center"><i class="fab fa-facebook-f"></i></a> </li>
+    <li class="social-list__item"><a href="https://www.twitter.com" class="social-list__link flx-center"> <i class="fab fa-twitter"></i></a></li>
+    <li class="social-list__item"><a href="https://www.linkedin.com" class="social-list__link flx-center"> <i class="fab fa-linkedin-in"></i></a></li>
+    <li class="social-list__item"><a href="https://www.pinterest.com" class="social-list__link flx-center"> <i class="fab fa-instagram"></i></a></li>
+</ul>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-xsm-6">
+                <div class="footer-item ms-xl-5">
+                    <h6 class="footer-item__title">Useful Links</h6>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="blog-classic.html" class="footer-menu__link">Blog</a></li>
+                        <li class="footer-menu__item"><a href="faq.html" class="footer-menu__link">FAQ</a></li>
+                        <li class="footer-menu__item"><a href="property.html" class="footer-menu__link">Property</a></li>
+                        <li class="footer-menu__item"><a href="about.html" class="footer-menu__link">About Us</a></li>
+                        <li class="footer-menu__item"><a href="contact.html" class="footer-menu__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-xsm-6">
+                <div class="footer-item">
+                    <h6 class="footer-item__title">Services</h6>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="property.html" class="footer-menu__link">Reliable Rentals </a></li>
+                        <li class="footer-menu__item"><a href="property.html" class="footer-menu__link">Golden Key Properties </a></li>
+                        <li class="footer-menu__item"><a href="property.html" class="footer-menu__link">Swift Home Sales </a></li>
+                        <li class="footer-menu__item"><a href="property.html" class="footer-menu__link">Elite Realty Services </a></li>
+                        <li class="footer-menu__item"><a href="property.html" class="footer-menu__link">Dream Property Solutions </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-xsm-6">
+                <div class="footer-item">
+                    <h6 class="footer-item__title">Our gallery</h6>
+                    <div class="gallery-list">
+                        <div class="gallery-list__item">
+                            <img src="assets/images/thumbs/gallery1.png" alt="">
+                            <a href="https://www.instagram.com" class="gallery-list__link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="gallery-list__item">
+                            <img src="assets/images/thumbs/gallery2.png" alt="">
+                            <a href="https://www.instagram.com" class="gallery-list__link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="gallery-list__item">
+                            <img src="assets/images/thumbs/gallery3.png" alt="">
+                            <a href="https://www.instagram.com" class="gallery-list__link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="gallery-list__item">
+                            <img src="assets/images/thumbs/gallery4.png" alt="">
+                            <a href="https://www.instagram.com" class="gallery-list__link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="gallery-list__item">
+                            <img src="assets/images/thumbs/gallery5.png" alt="">
+                            <a href="https://www.instagram.com" class="gallery-list__link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="gallery-list__item">
+                            <img src="assets/images/thumbs/gallery6.png" alt="">
+                            <a href="https://www.instagram.com" class="gallery-list__link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- bottom Footer -->
+<div class="bottom-footer ">
+    <div class="container container-two">
+        <div class="bottom-footer__inner flx-between gap-3">
+            <p class="bottom-footer__text"> &copy; CityScape 2024 | All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Terms & Condition</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

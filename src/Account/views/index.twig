@@ -1,8 +1,1268 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
+<div class="overlay"></div>
+<!--==================== Overlay End ====================-->
 
-<h1>Bienvenue sur l'account</h1>
+<!--==================== Sidebar Overlay End ====================-->
+<div class="side-overlay"></div>
+<!--==================== Sidebar Overlay End ====================-->
 
-<h2> david</h2>
+<!-- ==================== Scroll to Top End Here ==================== -->
+<div class="progress-wrap">
+  <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+  </svg>
+</div>
+<!-- ==================== Scroll to Top End Here ==================== -->
+
+<!-- ==================== Mobile Menu Start Here ==================== -->
+<div class="mobile-menu d-lg-none d-block">
+    <button type="button" class="close-button"> <i class="las la-times"></i> </button>
+    <div class="mobile-menu__inner">
+        <a href="index.html" class="mobile-menu__logo">
+            <img src="assets/images/logo/logo.png" alt="Logo">
+        </a>
+        <div class="mobile-menu__menu">
+            
+<ul class="nav-menu flx-align nav-menu--mobile">
+    <li class="nav-menu__item has-submenu">
+        <a href="javascript:void(0)" class="nav-menu__link">Home</a>
+        <ul class="nav-submenu">
+            <li class="nav-submenu__item">
+                <a href="index.html" class="nav-submenu__link"> Home One</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-2.html" class="nav-submenu__link"> Home Two</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-3.html" class="nav-submenu__link"> Home Three</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-4.html" class="nav-submenu__link"> Home Four</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-5.html" class="nav-submenu__link"> Home Five</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-6.html" class="nav-submenu__link"> Home Video</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-7.html" class="nav-submenu__link"> Home Map</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-menu__item has-submenu">
+        <a href="javascript:void(0)" class="nav-menu__link">Pages</a>
+         <ul class="nav-submenu">
+            <li class="nav-submenu__item">
+                <a href="property.html" class="nav-submenu__link"> Property</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="property-sidebar.html" class="nav-submenu__link"> Property Sidebar </a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="property-details.html" class="nav-submenu__link"> Property Details</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="add-listing.html" class="nav-submenu__link"> Add New Listing</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="map-location.html" class="nav-submenu__link"> Map Location</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="about.html" class="nav-submenu__link"> About Us</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="faq.html" class="nav-submenu__link"> FAQ</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="checkout.html" class="nav-submenu__link"> Checkout</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="cart.html" class="nav-submenu__link"> Cart</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="login.html" class="nav-submenu__link"> Login</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="account.html" class="nav-submenu__link"> Account</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-menu__item has-submenu">
+        <a href="javascript:void(0)" class="nav-menu__link">Project</a>
+         <ul class="nav-submenu">
+            <li class="nav-submenu__item">
+                <a href="project.html" class="nav-submenu__link"> Project </a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="project-details.html" class="nav-submenu__link">Project Details</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-menu__item has-submenu">
+        <a href="javascript:void(0)" class="nav-menu__link">Blog</a>
+         <ul class="nav-submenu">
+            <li class="nav-submenu__item">
+                <a href="blog-classic.html" class="nav-submenu__link"> Blog Classic</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="blog-details.html" class="nav-submenu__link"> Blog Details</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-menu__item">
+        <a href="contact.html" class="nav-menu__link">Contact</a>
+    </li>
+</ul>
+            <a href="#" class="btn btn-outline-light d-lg-none d-block mt-4">Sell Property <span class="icon-right text-gradient"> <i class="fas fa-arrow-right"></i> </span> </a>
+        </div>
+    </div>
+</div>
+<!-- ==================== Mobile Menu End Here ==================== -->
+
+
+<!-- ==================== Right Offcanvas Start Here ==================== -->
+<div class="common-offcanvas d-lg-block d-none">
+    <div class="flx-between">
+        <a href="index.html" class="mobile-menu__logo">
+            <img src="assets/images/logo/white-logo.png" alt="Logo">
+        </a>
+        <button type="button" class="close-button d-flex position-relative top-0 end-0"> <i class="las la-times"></i> </button>
+    </div>
+
+    <div class="search-box mt-5">
+        <form action="#">
+            <input type="text" class="common-input common-input--light" placeholder="Search...">
+            <button type="submit" class="icon"> <i class="fas fa-search"></i> </button>
+        </form>
+    </div>
+
+    <ul class="address-list mt-5">
+        <li class="address-list__item flx-align">
+            <span class="address-list__icon"><i class="fas fa-map-marker-alt"></i></span>
+            <div class="address-list__content">
+                <p class="address-list__text">Burmsille Street, MN 55337, <br> United States</p>
+            </div>
+        </li>
+        <li class="address-list__item flx-align">
+            <span class="address-list__icon"> <i class="fas fa-phone"></i></span>
+            <div class="address-list__content">
+                <a href="tel:" class="address-list__text">+(1) 123 456 7890 </a>
+                <a href="tel:" class="address-list__text">+(1) 098 765 4321 </a>
+            </div>
+        </li>
+        <li class="address-list__item flx-align">
+            <span class="address-list__icon"> <i class="fas fa-envelope"></i></span>
+            <div class="address-list__content">
+                <a href="mailto:" class="address-list__text"> info@driller.com</a>
+                <a href="mailto:" class="address-list__text">info.example@driller.com</a>
+            </div>
+        </li>
+    </ul>
+
+    <div class="google-map mt-5">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1511.2499674845235!2d-73.99553882767792!3d40.75102778252164!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1686536419224!5m2!1sen!2sbd" loading="lazy" class="w-100 h-100"></iframe>
+    </div>
+
+    <ul class="social-list">
+    <li class="social-list__item"><a href="https://www.facebook.com" class="social-list__link flx-center"><i class="fab fa-facebook-f"></i></a> </li>
+    <li class="social-list__item"><a href="https://www.twitter.com" class="social-list__link flx-center"> <i class="fab fa-twitter"></i></a></li>
+    <li class="social-list__item"><a href="https://www.linkedin.com" class="social-list__link flx-center"> <i class="fab fa-linkedin-in"></i></a></li>
+    <li class="social-list__item"><a href="https://www.pinterest.com" class="social-list__link flx-center"> <i class="fab fa-instagram"></i></a></li>
+</ul>
+    
+</div>
+<!-- ==================== Right Offcanvas End Here ==================== -->
+
+
+
+<main class="body-bg">
+    <!-- ==================== Header Start Here ==================== -->
+<header class="header dark-header has-border">
+    <div class="container container-two">
+        <nav class="header-inner flx-between">
+            <!-- Logo Start -->
+            <div class="logo">
+                <a href="index.html" class="link">
+                    <img src="assets/images/logo/white-logo.png" alt="Logo">
+                </a>
+            </div>
+            <!-- Logo End -->
+
+            <!-- Menu Start  -->
+            <div class="header-menu d-lg-block d-none ">
+                
+<ul class="nav-menu flx-align ">
+    <li class="nav-menu__item has-submenu">
+        <a href="javascript:void(0)" class="nav-menu__link">Home</a>
+        <ul class="nav-submenu">
+            <li class="nav-submenu__item">
+                <a href="index.html" class="nav-submenu__link"> Home One</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-2.html" class="nav-submenu__link"> Home Two</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-3.html" class="nav-submenu__link"> Home Three</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-4.html" class="nav-submenu__link"> Home Four</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-5.html" class="nav-submenu__link"> Home Five</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-6.html" class="nav-submenu__link"> Home Video</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="index-7.html" class="nav-submenu__link"> Home Map</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-menu__item has-submenu">
+        <a href="javascript:void(0)" class="nav-menu__link">Pages</a>
+         <ul class="nav-submenu">
+            <li class="nav-submenu__item">
+                <a href="property.html" class="nav-submenu__link"> Property</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="property-sidebar.html" class="nav-submenu__link"> Property Sidebar </a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="property-details.html" class="nav-submenu__link"> Property Details</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="add-listing.html" class="nav-submenu__link"> Add New Listing</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="map-location.html" class="nav-submenu__link"> Map Location</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="about.html" class="nav-submenu__link"> About Us</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="faq.html" class="nav-submenu__link"> FAQ</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="checkout.html" class="nav-submenu__link"> Checkout</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="cart.html" class="nav-submenu__link"> Cart</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="login.html" class="nav-submenu__link"> Login</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="account.html" class="nav-submenu__link"> Account</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-menu__item has-submenu">
+        <a href="javascript:void(0)" class="nav-menu__link">Project</a>
+         <ul class="nav-submenu">
+            <li class="nav-submenu__item">
+                <a href="project.html" class="nav-submenu__link"> Project </a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="project-details.html" class="nav-submenu__link">Project Details</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-menu__item has-submenu">
+        <a href="javascript:void(0)" class="nav-menu__link">Blog</a>
+         <ul class="nav-submenu">
+            <li class="nav-submenu__item">
+                <a href="blog-classic.html" class="nav-submenu__link"> Blog Classic</a>
+            </li>
+            <li class="nav-submenu__item">
+                <a href="blog-details.html" class="nav-submenu__link"> Blog Details</a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-menu__item">
+        <a href="contact.html" class="nav-menu__link">Contact</a>
+    </li>
+</ul>
+            </div>
+            <!-- Menu End  -->
+
+            <!-- Header Right start -->
+            <div class="header-right flx-align">
+                <a href="property-details.html" class="btn btn-outline-main btn-outline-main-dark d-lg-block d-none"> Add Listing 
+                    <span class="icon-right icon"> 
+                        <i class="fas fa-arrow-right"></i> 
+                    </span>
+                 </a>
+                <button type="button" class="toggle-mobileMenu d-lg-none ms-3"> <i class="las la-bars"></i> </button>
+            </div>
+            <!-- Header Right End  -->
+        </nav>
+    </div>
+</header>
+<!-- ==================== Header End Here ==================== -->
+
+    
+    <!-- ==================== Breadcrumb Start Here ==================== -->
+<section class="breadcrumb padding-y-120">
+    <img src="assets/images/thumbs/breadcrumb-img.png" alt="" class="breadcrumb__img">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="breadcrumb__wrapper">
+                    <h2 class="breadcrumb__title"> Account</h2>
+                    <ul class="breadcrumb__list">
+                        <li class="breadcrumb__item"><a href="index.html" class="breadcrumb__link"> <i class="las la-home"></i> Home</a> </li>
+                        <li class="breadcrumb__item"><i class="fas fa-angle-right"></i></li>
+                        <li class="breadcrumb__item"> <span class="breadcrumb__item-text"> Account </span> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ==================== Breadcrumb End Here ==================== -->
+    
+    <!-- ========================== Account Page Start ==================== -->
+<section class="account padding-y-120">
+    <div class="container container-two">
+        <div class="row gy-4">
+            <div class="col-xl-3 col-lg-4">
+                <div class="account-sidebar search-sidebar">
+    <div class="nav side-tab flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"> <span class="icon"><i class="fas fa-home"></i></span> Home </button>
+      <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"> <span class="icon"> <i class="fas fa-user"></i></span> Profile</button>
+      <button class="nav-link" id="v-pills-address-tab" data-bs-toggle="pill" data-bs-target="#v-pills-address" type="button" role="tab" aria-controls="v-pills-address" aria-selected="false"> <span class="icon"><i class="fas fa-map-marker-alt"></i> </span> address</button>
+      <button class="nav-link" id="v-pills-accountDetails-tab" data-bs-toggle="pill" data-bs-target="#v-pills-accountDetails" type="button" role="tab" aria-controls="v-pills-accountDetails" aria-selected="false"> <span class="icon">  <i class="fas fa-user"></i></span> Account Details</button>
+      <button class="nav-link" id="v-pills-myProperties-tab" data-bs-toggle="pill" data-bs-target="#v-pills-myProperties" type="button" role="tab" aria-controls="v-pills-myProperties" aria-selected="false"> <span class="icon"> <i class="fas fa-list"></i></span> My Properties</button>
+      <button class="nav-link" id="v-pills-favoriteProperties-tab" data-bs-toggle="pill" data-bs-target="#v-pills-favoriteProperties" type="button" role="tab" aria-controls="v-pills-favoriteProperties" aria-selected="false"> <span class="icon"> <i class="fas fa-heart"></i></span> Favorite Properties</button>
+      <button class="nav-link" id="v-pills-addProperty-tab" data-bs-toggle="pill" data-bs-target="#v-pills-addProperty" type="button" role="tab" aria-controls="v-pills-addProperty" aria-selected="false"> <span class="icon"> <i class="fas fa-map-marked-alt"></i></span> Add Property</button>
+      <button class="nav-link" id="v-pills-payments-tab" data-bs-toggle="pill" data-bs-target="#v-pills-payments" type="button" role="tab" aria-controls="v-pills-payments" aria-selected="false"> <span class="icon"> <i class="fas fa-money-check"></i></span> Payments</button>
+      <button class="nav-link" id="v-pills-changePassword-tab" data-bs-toggle="pill" data-bs-target="#v-pills-changePassword" type="button" role="tab" aria-controls="v-pills-changePassword" aria-selected="false"> <span class="icon"> <i class="fas fa-lock"></i></span> Change Password</button>
+      <a href="login.html" class="nav-link"> <span class="icon"> <i class="fas fa-sign-out-alt"></i></span>  Logout</a>
+    </div>
+</div>
+            </div>
+            <div class="col-xl-9 col-lg-8">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
+                        <p class="account-alert">Hello <strong class="text-heading fw-500 text-poppins">UserName</strong> (not <strong class="text-heading fw-500 text-poppins">UserName</strong>? Log out )</p>
+                        <p class="account-alert">From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
+                        <div class="card common-card mb-4">
+                            <div class="card-body">
+                                <div class="profile-info d-flex gap-4 align-items-center">
+                                    <div class="profile-info__thumb">
+                                        <img src="assets/images/thumbs/team1.png" alt="">
+                                    </div>
+                                    <div class="profile-info__content">
+                                        <span class="mb-1 fw-semibold text-main text-poppins font-13">Agent of Property</span>
+                                        <h4 class="profile-info__title text-poppins mb-4">Rosalina D. William</h4>
+                                        <div class="contact-info d-flex gap-3 align-items-center mb-2">
+                                            <span class="contact-info__icon text-gradient"><i class="fas fa-map-marker-alt"></i></span>
+                                            <div class="contact-info__content">
+                                                <span class="contact-info__address">66 Broklyant, New York India</span>
+                                            </div>
+                                        </div>
+                                        <div class="contact-info d-flex gap-3 align-items-center mb-2">
+                                            <span class="contact-info__icon text-gradient"><i class="fas fa-phone"></i></span>
+                                            <div class="contact-info__content">
+                                                <span class="contact-info__address">012 345 678 9101</span>
+                                            </div>
+                                        </div>
+                                        <div class="contact-info d-flex gap-3 align-items-center">
+                                            <span class="contact-info__icon text-gradient"><i class="fas fa-envelope"></i></span>
+                                            <div class="contact-info__content">
+                                                <span class="contact-info__address">example@gmail.com</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card common-card">
+                            <div class="card-body">
+                                <form action="#">
+                                    <h6 class="loginRegister__title text-poppins">Get A Quote</h6>
+    
+                                    <div class="row gy-lg-4 gy-3">
+                                        <div class="col-sm-6 col-xs-6">
+                                            <label for="name" class="form-label">Name</label>
+                                            <input type="text" class="common-input" placeholder="Enter Your Name" id="name">
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <label for="Email" class="form-label">Email</label>
+                                            <input type="email" class="common-input" placeholder="Enter Your Email" id="Email">
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <label for="Phone" class="form-label">Phone</label>
+                                            <input type="tel" class="common-input" placeholder="Enter Your Phone" id="Phone">
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <label for="Phone" class="form-label">Type</label>
+                                            <div class="select-has-icon">
+                                                <select class="form-select common-input text-gray-800">
+                                                    <option value="Type" disabled="" >Select Your Type</option>
+                                                    <option value="1">Property Management</option>
+                                                    <option value="1">Mortgage Server</option>
+                                                    <option value="1">Consulting Service</option>
+                                                    <option value="1">Home Buying</option>
+                                                    <option value="1">Home Selling</option>
+                                                    <option value="1">Escrow Service</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <label for="message" class="form-label">Message</label>
+                                            <textarea class="common-input" placeholder="Your Message" id="message"></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="common-check mb-0">
+                                                <input class="form-check-input" type="checkbox" value="" id="remember">
+                                                <label class="form-check-label" for="remember"> Save my name, email, and website in this browser for the next time I comment. </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-main w-100">Get a free service</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-address" role="tabpanel" aria-labelledby="v-pills-address-tab" tabindex="0">
+                        <p class="account-alert">The accompanying tends to will be utilized on the checkout page naturally.</p>
+                        <div class="row gy-4">
+                            <div class="col-sm-6">
+                                <div class="card common-card">
+                                    <div class="card-body">
+                                        <h6 class="text-poppins mb-2">Charging Address alter</h6>
+                                        <span class="fw-semibold text-poppins font-14 mb-4">Rosalina D. William</span>
+        
+                                        <div class="contact-info d-flex gap-3 align-items-center mb-2">
+                                            <div class="contact-info__content">
+                                                <span class="contact-info__address"><strong class="fw-500">location:</strong> 66 Broklyant, New York India</span>
+                                            </div>
+                                        </div>
+                                        <div class="contact-info d-flex gap-3 align-items-center mb-2">
+                                            <div class="contact-info__content">
+                                                <span class="contact-info__address"><strong class="fw-500">Phone:</strong>  012 345 678 9101</span>
+                                            </div>
+                                        </div>
+                                        <div class="contact-info d-flex gap-3 align-items-center">
+                                            <div class="contact-info__content">
+                                                <span class="contact-info__address"><strong class="fw-500">Email:</strong>  example@gmail.com</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card common-card">
+                                    <div class="card-body">
+                                        <h6 class="text-poppins mb-2">Transporting Address alter</h6>
+                                        <span class="fw-semibold text-poppins font-14 mb-4">Rosalina D. William</span>
+        
+                                        <div class="contact-info d-flex gap-3 align-items-center mb-2">
+                                            <div class="contact-info__content">
+                                                <span class="contact-info__address"><strong class="fw-500">location:</strong> 66 Broklyant, New York India</span>
+                                            </div>
+                                        </div>
+                                        <div class="contact-info d-flex gap-3 align-items-center mb-2">
+                                            <div class="contact-info__content">
+                                                <span class="contact-info__address"><strong class="fw-500">Phone:</strong>  012 345 678 9101</span>
+                                            </div>
+                                        </div>
+                                        <div class="contact-info d-flex gap-3 align-items-center">
+                                            <div class="contact-info__content">
+                                                <span class="contact-info__address"><strong class="fw-500">Email:</strong>  example@gmail.com</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-accountDetails" role="tabpanel" aria-labelledby="v-pills-accountDetails-tab" tabindex="0">
+                        <p class="account-alert">The accompanying tends to be utilized on the checkout page as a matter of course.</p>
+                        <form action="#">
+                            <div class="card common-card mb-4">
+                                <div class="card-body">
+                                    <h6 class="loginRegister__title text-poppins">Personal Information</h6>
+    
+                                    <div class="row gy-lg-4 gy-3">
+                                        <div class="col-sm-6 col-xs-6">
+                                            <label for="FirstNamee" class="form-label">First Name</label>
+                                            <input type="text" class="common-input" value="Rosalina" placeholder="First Name" id="FirstNamee">
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <label for="lastName" class="form-label">Last Name</label>
+                                            <input type="text" class="common-input" value="D. William" placeholder="Last Name" id="lastName">
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <label for="displayName" class="form-label">Display Name</label>
+                                            <input type="text" class="common-input" value="Rosalina D. William" placeholder="Display Name" id="displayName">
+                                        </div>
+                                        <div class="col-sm-6 col-xs-6">
+                                            <label for="DisplayEmail" class="form-label">Display Email</label>
+                                            <input type="email" class="common-input"  placeholder="Display Email" value="example@gmail.com" id="DisplayEmail">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card common-card">
+                                <div class="card-body">
+                                    <h6 class="loginRegister__title text-poppins">Password Change </h6>
+    
+                                    <div class="row gy-lg-4 gy-3">
+                                        <div class="col-12">
+                                            <label for="current-password" class="form-label">Current Password</label>
+                                            <div class="position-relative">
+                                                <input type="password" class="common-input" placeholder="Password" id="current-password">
+                                                <span class="password-show-hide fas fa-eye toggle-password la-eye-slash" id="#current-password"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="new-password" class="form-label">New Password</label>
+                                            <div class="position-relative">
+                                                <input type="password" class="common-input" placeholder="Password" id="new-password">
+                                                <span class="password-show-hide fas fa-eye toggle-password la-eye-slash" id="#new-password"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="confirm-password" class="form-label">Confirm Password</label>
+                                            <div class="position-relative">
+                                                <input type="password" class="common-input" placeholder="Password" id="confirm-password">
+                                                <span class="password-show-hide fas fa-eye toggle-password la-eye-slash" id="#confirm-password"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-main w-100">Save Changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-myProperties" role="tabpanel" aria-labelledby="v-pills-myProperties-tab" tabindex="0">
+                        <div class="overflow-auto">
+                            <div class="card common-card min-w-maxContent">
+                                <div class="card-body">
+                                    <table class="table style-two">
+                                        <thead>
+                                          <tr>
+                                            <th>My Properties</th>
+                                            <th>Date Added</th>
+                                            <th>Actions</th>
+                                            <th>Delete</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="cart-item__thumb">
+                                                        <img src="assets/images/thumbs/property-1.png" alt="">
+                                                    </div>
+                                                    <div class="cart-item__content">
+                                                        <h6 class="cart-item__title fw-500 font-18"> <a href="property.html" class="link">3 Rooms Manhattan</a></h6>
+                                                    <p class="property-item__location d-flex gap-2 font-14"> <span class="icon text-gradient"> <i class="fas fa-map-marker-alt"></i></span> 66 Broklyant, New York America </p>
+                                                        <span class="cart-item__price">Price: <span class="fw-500 text-heading">$85.00</span></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td> <span class="date">17/02/2024</span> </td>
+                                            <td>
+                                                <button type="button" class="rounded-btn edit-btn  text-info bg-info m-auto bg-opacity-10 flex-shrink-0"><i class="fas fa-edit"></i></button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="rounded-btn delete-btn  text-danger bg-danger bg-opacity-10 flex-shrink-0"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="cart-item__thumb">
+                                                        <img src="assets/images/thumbs/property-2.png" alt="">
+                                                    </div>
+                                                    <div class="cart-item__content">
+                                                        <h6 class="cart-item__title fw-500 font-18"> <a href="property.html" class="link">Wheel Bearing Retainer</a></h6>
+                                                    <p class="property-item__location d-flex gap-2 font-14"> <span class="icon text-gradient"> <i class="fas fa-map-marker-alt"></i></span> 66 Broklyant, New York America </p>
+                                                        <span class="cart-item__price">Price: <span class="fw-500 text-heading">$85.00</span></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td> <span class="date">17/02/2024</span> </td>
+                                            <td>
+                                                <button type="button" class="rounded-btn edit-btn  text-info bg-info m-auto bg-opacity-10 flex-shrink-0"><i class="fas fa-edit"></i></button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="rounded-btn delete-btn  text-danger bg-danger bg-opacity-10 flex-shrink-0"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="cart-item__thumb">
+                                                        <img src="assets/images/thumbs/property-3.png" alt="">
+                                                    </div>
+                                                    <div class="cart-item__content">
+                                                        <h6 class="cart-item__title fw-500 font-18"> <a href="property.html" class="link">Your journey home owner</a></h6>
+                                                    <p class="property-item__location d-flex gap-2 font-14"> <span class="icon text-gradient"> <i class="fas fa-map-marker-alt"></i></span> 66 Broklyant, New York America </p>
+                                                        <span class="cart-item__price">Price: <span class="fw-500 text-heading">$85.00</span></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td> <span class="date">17/02/2024</span> </td>
+                                            <td>
+                                                <button type="button" class="rounded-btn edit-btn  text-info bg-info m-auto bg-opacity-10 flex-shrink-0"><i class="fas fa-edit"></i></button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="rounded-btn delete-btn  text-danger bg-danger bg-opacity-10 flex-shrink-0"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="cart-item__thumb">
+                                                        <img src="assets/images/thumbs/property-4.png" alt="">
+                                                    </div>
+                                                    <div class="cart-item__content">
+                                                        <h6 class="cart-item__title fw-500 font-18"> <a href="property.html" class="link">Turning Dreams into Addresses Home State</a></h6>
+                                                    <p class="property-item__location d-flex gap-2 font-14"> <span class="icon text-gradient"> <i class="fas fa-map-marker-alt"></i></span> 66 Broklyant, New York America </p>
+                                                        <span class="cart-item__price">Price: <span class="fw-500 text-heading">$85.00</span></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td> <span class="date">17/02/2024</span> </td>
+                                            <td>
+                                                <button type="button" class="rounded-btn edit-btn  text-info bg-info m-auto bg-opacity-10 flex-shrink-0"><i class="fas fa-edit"></i></button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="rounded-btn delete-btn  text-danger bg-danger bg-opacity-10 flex-shrink-0"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination common-pagination">
+                                <li class="page-item active"><a class="page-link bg-white" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link bg-white" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link bg-white" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link bg-white" href="#">4</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-favoriteProperties" role="tabpanel" aria-labelledby="v-pills-favoriteProperties-tab" tabindex="0">
+                        <div class="overflow-auto">
+                            <div class="card common-card min-w-maxContent">
+                                <div class="card-body">
+                                    <table class="table style-two">
+                                        <thead>
+                                          <tr>
+                                            <th>My Properties</th>
+                                            <th>Date Added</th>
+                                            <th>Actions</th>
+                                            <th>Delete</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="cart-item__thumb">
+                                                        <img src="assets/images/thumbs/property-1.png" alt="">
+                                                    </div>
+                                                    <div class="cart-item__content">
+                                                        <h6 class="cart-item__title fw-500 font-18"> <a href="property.html" class="link">3 Rooms Manhattan</a></h6>
+                                                    <p class="property-item__location d-flex gap-2 font-14"> <span class="icon text-gradient"> <i class="fas fa-map-marker-alt"></i></span> 66 Broklyant, New York America </p>
+                                                        <span class="cart-item__price">Price: <span class="fw-500 text-heading">$85.00</span></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td> <span class="date">17/02/2024</span> </td>
+                                            <td>
+                                                <button type="button" class="rounded-btn edit-btn  text-info bg-info m-auto bg-opacity-10 flex-shrink-0"><i class="fas fa-edit"></i></button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="rounded-btn delete-btn  text-danger bg-danger bg-opacity-10 flex-shrink-0"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="cart-item__thumb">
+                                                        <img src="assets/images/thumbs/property-2.png" alt="">
+                                                    </div>
+                                                    <div class="cart-item__content">
+                                                        <h6 class="cart-item__title fw-500 font-18"> <a href="property.html" class="link">Wheel Bearing Retainer</a></h6>
+                                                    <p class="property-item__location d-flex gap-2 font-14"> <span class="icon text-gradient"> <i class="fas fa-map-marker-alt"></i></span> 66 Broklyant, New York America </p>
+                                                        <span class="cart-item__price">Price: <span class="fw-500 text-heading">$85.00</span></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td> <span class="date">17/02/2024</span> </td>
+                                            <td>
+                                                <button type="button" class="rounded-btn edit-btn  text-info bg-info m-auto bg-opacity-10 flex-shrink-0"><i class="fas fa-edit"></i></button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="rounded-btn delete-btn  text-danger bg-danger bg-opacity-10 flex-shrink-0"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="cart-item__thumb">
+                                                        <img src="assets/images/thumbs/property-3.png" alt="">
+                                                    </div>
+                                                    <div class="cart-item__content">
+                                                        <h6 class="cart-item__title fw-500 font-18"> <a href="property.html" class="link">Your journey home owner</a></h6>
+                                                    <p class="property-item__location d-flex gap-2 font-14"> <span class="icon text-gradient"> <i class="fas fa-map-marker-alt"></i></span> 66 Broklyant, New York America </p>
+                                                        <span class="cart-item__price">Price: <span class="fw-500 text-heading">$85.00</span></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td> <span class="date">17/02/2024</span> </td>
+                                            <td>
+                                                <button type="button" class="rounded-btn edit-btn  text-info bg-info m-auto bg-opacity-10 flex-shrink-0"><i class="fas fa-edit"></i></button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="rounded-btn delete-btn  text-danger bg-danger bg-opacity-10 flex-shrink-0"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-3">
+                                                    <div class="cart-item__thumb">
+                                                        <img src="assets/images/thumbs/property-4.png" alt="">
+                                                    </div>
+                                                    <div class="cart-item__content">
+                                                        <h6 class="cart-item__title fw-500 font-18"> <a href="property.html" class="link">Turning Dreams into Addresses Home State</a></h6>
+                                                    <p class="property-item__location d-flex gap-2 font-14"> <span class="icon text-gradient"> <i class="fas fa-map-marker-alt"></i></span> 66 Broklyant, New York America </p>
+                                                        <span class="cart-item__price">Price: <span class="fw-500 text-heading">$85.00</span></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td> <span class="date">17/02/2024</span> </td>
+                                            <td>
+                                                <button type="button" class="rounded-btn edit-btn  text-info bg-info m-auto bg-opacity-10 flex-shrink-0"><i class="fas fa-edit"></i></button>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="rounded-btn delete-btn  text-danger bg-danger bg-opacity-10 flex-shrink-0"><i class="fas fa-trash-alt"></i></button>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination common-pagination">
+                                <li class="page-item active"><a class="page-link bg-white" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link bg-white" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link bg-white" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link bg-white" href="#">4</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-addProperty" role="tabpanel" aria-labelledby="v-pills-addProperty-tab" tabindex="0">
+                        <form action="#" enctype="multipart/form-data">
+                            <div class="card-item" id="basicInformation">
+                                <div class="card common-card">
+                                    <div class="card-header">
+                                        <h6 class="title mb-0">Property Basic Information</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row gy-4">
+                                            <div class="col-sm-12">
+                                                <label for="propertyTitle" class="form-label">Property Title</label>
+                                                <input type="text" class="common-input" id="propertyTitle" placeholder="Property Title">
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="Description" class="form-label">Description</label>
+                                                <textarea class="common-input" id="Description" placeholder="Your Message"></textarea>
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6">
+                                                <label for="Status" class="form-label">Status</label>
+                                                <div class="select-has-icon icon-black">
+                                                    <select class="select common-input" id="Status">
+                                                        <option value="1" disabled="">Status</option>
+                                                        <option value="1">For Rent</option>
+                                                        <option value="1">For Sell</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6">
+                                                <label for="Type" class="form-label">Status</label>
+                                                <div class="select-has-icon icon-black">
+                                                    <select class="select common-input" id="Type">
+                                                        <option value="1" disabled=""> Type</option>
+                                                        <option value="1">Apartment</option>
+                                                        <option value="1">House</option>
+                                                        <option value="1">Land</option>
+                                                        <option value="1">Single Family</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6">
+                                                <label for="Price" class="form-label">Price</label>
+                                                <input type="number" class="common-input" id="Price" placeholder="USD">
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6">
+                                                <label for="Area" class="form-label">Area</label>
+                                                <input type="number" class="common-input" id="Area" placeholder="Sq Ft">
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <label for="Rooms" class="form-label">Rooms</label>
+                                                <div class="select-has-icon icon-black">
+                                                    <select class="select common-input" id="Rooms">
+                                                        <option value="1" disabled=""> Rooms</option>
+                                                        <option value="1">Apartment</option>
+                                                        <option value="1">House</option>
+                                                        <option value="1">Land</option>
+                                                        <option value="1">Single Family</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-item" id="propertyGallery">
+                                <div class="card common-card">
+                                    <div class="card-header">
+                                        <h6 class="title mb-0">Property Gallery</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="input-images"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-item" id="propertyInformation">
+                                <div class="card common-card">
+                                    <div class="card-header">
+                                        <h6 class="title mb-0">Details Information</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row gy-4">
+                                            <div class="col-xl-3 col-sm-6 col-xs-6">
+                                                <label for="PropertyId" class="form-label">Property Id</label>
+                                                <input type="text" class="common-input" id="PropertyId" placeholder="Property Id">
+                                            </div>
+                                            <div class="col-xl-3 col-sm-6 col-xs-6">
+                                                <label for="AreaSize" class="form-label">Area Size</label>
+                                                <input type="text" class="common-input" id="AreaSize" placeholder="Area Size">
+                                            </div>
+                                            <div class="col-xl-3 col-sm-6 col-xs-6">
+                                                <label for="SizePrefix" class="form-label">Size Prefix</label>
+                                                <input type="text" class="common-input" id="SizePrefix" placeholder="Size Prefix">
+                                            </div>
+                                            <div class="col-xl-3 col-sm-6 col-xs-6">
+                                                <label for="LandArea" class="form-label">Land Area</label>
+                                                <input type="text" class="common-input" id="LandArea" placeholder="Land Area">
+                                            </div>
+                                            <div class="col-xl-3 col-sm-6 col-xs-6">
+                                                <label for="Bedrooms" class="form-label">Bedrooms</label>
+                                                <input type="text" class="common-input" id="Bedrooms" placeholder="Bedrooms">
+                                            </div>
+                                            <div class="col-xl-3 col-sm-6 col-xs-6">
+                                                <label for="Bathrooms" class="form-label">Bathrooms</label>
+                                                <input type="text" class="common-input" id="Bathrooms" placeholder="Bathrooms">
+                                            </div>
+                                            <div class="col-xl-3 col-sm-6 col-xs-6">
+                                                <label for="Garages" class="form-label">Garages</label>
+                                                <input type="text" class="common-input" id="Garages" placeholder="Garages">
+                                            </div>
+                                            <div class="col-xl-3 col-sm-6 col-xs-6">
+                                                <label for="YearBuild" class="form-label">Year Build</label>
+                                                <input type="text" class="common-input" id="YearBuild" placeholder="Year Build">
+                                            </div>
+                                            <div class="col-12">
+                                                <h6 class="checkboxes__title mt-4 fw-500 font-18">Amenities</h6>
+                                                <div class="row gy-3 checkboxes">
+                                                    <div class="col-md-4 col-sm-6 col-xs-6">
+                                                        <div class="common-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="airCondition">
+                                                            <label class="form-check-label" for="airCondition"> Air Condition </label>
+                                                        </div>
+                                                        <div class="common-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="Lawn">
+                                                            <label class="form-check-label" for="Lawn"> Lawn </label>
+                                                        </div>
+                                                        <div class="common-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="SwimmingPool">
+                                                            <label class="form-check-label" for="SwimmingPool"> Swimming Pool </label>
+                                                        </div>
+                                                        <div class="common-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="Barbeque">
+                                                            <label class="form-check-label" for="Barbeque"> Barbeque </label>
+                                                        </div>
+                                                        <div class="common-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="Microwave">
+                                                            <label class="form-check-label" for="Microwave"> Microwave </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6 col-xs-6">
+                                                        <div class="common-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="TVCable">
+                                                            <label class="form-check-label" for="TVCable"> TV Cable </label>
+                                                        </div>
+                                                        <div class="common-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="Dryer">
+                                                            <label class="form-check-label" for="Dryer"> Dryer </label>
+                                                        </div>
+                                                        <div class="common-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="OutdoorShower">
+                                                            <label class="form-check-label" for="OutdoorShower"> Outdoor Shower </label>
+                                                        </div>
+                                                        <div class="common-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="Washer">
+                                                            <label class="form-check-label" for="Washer"> Washer </label>
+                                                        </div>
+                                                        <div class="common-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="Gym">
+                                                            <label class="form-check-label" for="Gym"> Gym </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6 col-xs-6">
+                                                        <div class="common-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="Refrigerator">
+                                                            <label class="form-check-label" for="Refrigerator"> Refrigerator </label>
+                                                        </div>
+                                                        <div class="common-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="WiFi">
+                                                            <label class="form-check-label" for="WiFi"> WiFi </label>
+                                                        </div>
+                                                        <div class="common-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="Laundry">
+                                                            <label class="form-check-label" for="Laundry"> Laundry </label>
+                                                        </div>
+                                                        <div class="common-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="Souna">
+                                                            <label class="form-check-label" for="Souna"> Souna </label>
+                                                        </div>
+                                                        <div class="common-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="WindowCoverings">
+                                                            <label class="form-check-label" for="WindowCoverings"> Window Coverings </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-item" id="propertyContactDetails">
+                                <div class="card common-card">
+                                    <div class="card-header">
+                                        <h6 class="title mb-0">Property Contact Details</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row gy-4">
+                                            <div class="col-md-4 col-sm-6 col-xs-6">
+                                                <label for="Name" class="form-label">Your Name</label>
+                                                <input type="text" id="Name" class="common-input" placeholder="Your Name">
+                                            </div>
+                                            <div class="col-md-4 col-sm-6 col-xs-6">
+                                                <label for="YourEmail" class="form-label">Your E-mail</label>
+                                                <input type="email" id="YourEmail" class="common-input" placeholder="Your E-Mail">
+                                            </div>
+                                            <div class="col-md-4 col-sm-6 col-xs-6">
+                                                <label for="PhoneNumberrr" class="form-label">Phone Number</label>
+                                                <input type="tel" id="PhoneNumberrr" class="common-input" placeholder="Phone Number">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-main w-100">Submit Property</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-payments" role="tabpanel" aria-labelledby="v-pills-payments-tab" tabindex="0">
+                        <div class="row gy-4">
+                            <div class="col-lg-12">
+                                <div class="card common-card">
+                                    <div class="card-body">
+                                        <h6 class="title mb-4">Shipping Address</h6>
+                                        <div class="row gy-4">
+                                            <div class="col-sm-6 col-xs-6">
+                                                <label for="FirstName" class="form-label">First Name</label>
+                                                <input type="text" class="common-input" id="FirstName" placeholder="First Name">
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6">
+                                                <label for="LastName" class="form-label">Last Name</label>
+                                                <input type="text" class="common-input" id="LastName" placeholder="Last Name">
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6">
+                                                <label for="EmailAddress" class="form-label">Email Address</label>
+                                                <input type="email" class="common-input" id="EmailAddress" placeholder="Email Address">
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6">
+                                                <label for="PphoneNumber" class="form-label">Phone Number</label>
+                                                <input type="tel" class="common-input" id="PphoneNumber" placeholder="Phone Number">
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6">
+                                                <label for="Address" class="form-label">Address</label>
+                                                <input type="text" class="common-input" id="Address" placeholder="Address">
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6">
+                                                <label for="Country" class="form-label">Country</label>
+                                                <div class="select-has-icon icon-black">
+                                                    <select class="select common-input" id="Country">
+                                                        <option value="1" disabled=""> Country</option>
+                                                        <option value="1">Australia</option>
+                                                        <option value="1">Canada</option>
+                                                        <option value="1">Europe</option>
+                                                        <option value="1">Bangladesh</option>
+                                                        <option value="1">India</option>
+                                                        <option value="1">Pakistan</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6">
+                                                <label for="City" class="form-label">City</label>
+                                                <input type="text" class="common-input" id="City" placeholder="City">
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6">
+                                                <label for="State" class="form-label">State</label>
+                                                <input type="text" class="common-input" id="State" placeholder="State">
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6">
+                                                <label for="Region" class="form-label">Region</label>
+                                                <input type="text" class="common-input" id="Region" placeholder="Region">
+                                            </div>
+                                            <div class="col-sm-6 col-xs-6">
+                                                <label for="ZipCode" class="form-label">ZipCode</label>
+                                                <input type="text" class="common-input" id="ZipCode" placeholder="ZipCode">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card common-card">
+                                    <div class="card-body">
+                                        <h6 class="title mb-4">Payment Method</h6>
+                                        <div class="d-flex flex-column gap-3">
+                                            <div class="payment-method">
+                                                <div class="common-radio">
+                                                    <input class="form-check-input" type="radio" name="payment" id="DebitCard">
+                                                    <label class="form-check-label" for="DebitCard">
+                                                        Debit card / Credit card
+                                                        <img src="assets/images/thumbs/paypal.png" alt="">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="payment-method">
+                                                <div class="common-radio">
+                                                    <input class="form-check-input" type="radio" name="payment" id="payPal">
+                                                    <label class="form-check-label" for="payPal">
+                                                        Paypal
+                                                        <img src="assets/images/thumbs/visa.png" alt="">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card common-card">
+                                    <div class="card-body">
+                                        <h6 class="title mb-4">Cart Totals</h6>
+                                        <ul class="billing-list">
+                                            <li class="billing-list__item flx-between">
+                                                <span class="text text-poppins font-15">3 Rooms Manhattan × 2</span>
+                                                <span class="amount fw-semibold text-heading text-poppins">$321.95</span>
+                                            </li>
+                                            <li class="billing-list__item flx-between">
+                                                <span class="text text-poppins font-15">OE Replica Wheels × 2</span>
+                                                <span class="amount fw-semibold text-heading text-poppins"> $185.00 </span>
+                                            </li>
+                                            <li class="billing-list__item flx-between">
+                                                <span class="text text-poppins font-15">Wheel Bearing Retainer × 2</span>
+                                                <span class="amount fw-semibold text-heading text-poppins"> $130.00</span>
+                                            </li>
+                                            <li class="billing-list__item flx-between">
+                                                <span class="text text-poppins font-15">Shipping and Handing</span>
+                                                <span class="amount fw-semibold text-heading text-poppins"> $15.00</span>
+                                            </li>
+                                            <li class="billing-list__item flx-between">
+                                                <span class="text text-poppins font-15">Vat</span>
+                                                <span class="amount fw-semibold text-heading text-poppins"> $10.00</span>
+                                            </li>
+                                            <li class="billing-list__item flx-between">
+                                                <span class="text text-poppins fw-semibold text-heading">Order Total</span>
+                                                <span class="amount fw-semibold text-heading text-poppins"> $661.95</span>
+                                            </li>
+                                        </ul>
+                                        <button type="submit" class="btn btn-main w-100 mt-4">Pay Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-changePassword" role="tabpanel" aria-labelledby="v-pills-changePassword-tab" tabindex="0">
+                        <form action="#">
+                            <div class="card common-card">
+                                <div class="card-body">
+                                    <h6 class="loginRegister__title text-poppins">Password Change </h6>
+    
+                                    <div class="row gy-lg-4 gy-3">
+                                        <div class="col-12">
+                                            <label for="current-passwordd" class="form-label">Current Password</label>
+                                            <div class="position-relative">
+                                                <input type="password" class="common-input" placeholder="Password" id="current-passwordd">
+                                                <span class="password-show-hide fas fa-eye toggle-password la-eye-slash" id="#current-passwordd"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="new-passwordd" class="form-label">New Password</label>
+                                            <div class="position-relative">
+                                                <input type="password" class="common-input" placeholder="Password" id="new-passwordd">
+                                                <span class="password-show-hide fas fa-eye toggle-password la-eye-slash" id="#new-passwordd"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="confirm-passwordd" class="form-label">Confirm Password</label>
+                                            <div class="position-relative">
+                                                <input type="password" class="common-input" placeholder="Password" id="confirm-passwordd">
+                                                <span class="password-show-hide fas fa-eye toggle-password la-eye-slash" id="#confirm-passwordd"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-main w-100">Save Changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ========================== Account Page End ==================== -->
+    
+    <!-- ============================= CTA section Start ===================== -->
+<section class="cta padding-b-120">
+    <div class="container container-two">
+        <div class="cta-box flx-between gap-2">
+            <div class="cta-content">
+                <h2 class="cta-content__title">Subscribe To Our <span class="text-gradient">Newsletter</span> </h2>
+                <p class="cta-content__desc">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                <form action="#" class="cta-content__form d-flex align-items-center gap-2">
+                    <div class="position-relative w-100">
+                        <input type="text" class="common-input common-input--withLeftIcon w-100" placeholder="Enter Your Email Address">
+                        <span class="input-icon input-icon--left text-gradient font-20 line-height-1"><i class="far fa-envelope"></i></span>
+                    </div>
+                    <button type="submit" class="btn btn-main text-uppercase flex-shrink-0"> Subscribe <span class="text">Now</span> </button>
+                </form>
+            </div>
+            <div class="cta-content__thumb d-xl-block d-none">
+                <img src="assets/images/thumbs/cta-img.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ============================= CTA section End ===================== -->
+    
+    
+<!-- ==================== Footer Start Here ==================== -->
+<footer class="footer padding-y-120 ">
+    <div class="container container-two">
+        <div class="row gy-5">
+            <div class="col-xl-3 col-sm-6 col-xsm-6">
+                <div class="footer-item">
+                    <div class="footer-item__logo">
+                        <a href="index.html"> <img src="assets/images/logo/white-logo.png" alt=""></a>
+                    </div>
+                    <p class="footer-item__desc">It is a long established fact that a reader will be distracted</p>
+                    <ul class="social-list">
+    <li class="social-list__item"><a href="https://www.facebook.com" class="social-list__link flx-center"><i class="fab fa-facebook-f"></i></a> </li>
+    <li class="social-list__item"><a href="https://www.twitter.com" class="social-list__link flx-center"> <i class="fab fa-twitter"></i></a></li>
+    <li class="social-list__item"><a href="https://www.linkedin.com" class="social-list__link flx-center"> <i class="fab fa-linkedin-in"></i></a></li>
+    <li class="social-list__item"><a href="https://www.pinterest.com" class="social-list__link flx-center"> <i class="fab fa-instagram"></i></a></li>
+</ul>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-xsm-6">
+                <div class="footer-item ms-xl-5">
+                    <h6 class="footer-item__title">Useful Links</h6>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="blog-classic.html" class="footer-menu__link">Blog</a></li>
+                        <li class="footer-menu__item"><a href="faq.html" class="footer-menu__link">FAQ</a></li>
+                        <li class="footer-menu__item"><a href="property.html" class="footer-menu__link">Property</a></li>
+                        <li class="footer-menu__item"><a href="about.html" class="footer-menu__link">About Us</a></li>
+                        <li class="footer-menu__item"><a href="contact.html" class="footer-menu__link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-xsm-6">
+                <div class="footer-item">
+                    <h6 class="footer-item__title">Services</h6>
+                    <ul class="footer-menu">
+                        <li class="footer-menu__item"><a href="property.html" class="footer-menu__link">Reliable Rentals </a></li>
+                        <li class="footer-menu__item"><a href="property.html" class="footer-menu__link">Golden Key Properties </a></li>
+                        <li class="footer-menu__item"><a href="property.html" class="footer-menu__link">Swift Home Sales </a></li>
+                        <li class="footer-menu__item"><a href="property.html" class="footer-menu__link">Elite Realty Services </a></li>
+                        <li class="footer-menu__item"><a href="property.html" class="footer-menu__link">Dream Property Solutions </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-xsm-6">
+                <div class="footer-item">
+                    <h6 class="footer-item__title">Our gallery</h6>
+                    <div class="gallery-list">
+                        <div class="gallery-list__item">
+                            <img src="assets/images/thumbs/gallery1.png" alt="">
+                            <a href="https://www.instagram.com" class="gallery-list__link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="gallery-list__item">
+                            <img src="assets/images/thumbs/gallery2.png" alt="">
+                            <a href="https://www.instagram.com" class="gallery-list__link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="gallery-list__item">
+                            <img src="assets/images/thumbs/gallery3.png" alt="">
+                            <a href="https://www.instagram.com" class="gallery-list__link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="gallery-list__item">
+                            <img src="assets/images/thumbs/gallery4.png" alt="">
+                            <a href="https://www.instagram.com" class="gallery-list__link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="gallery-list__item">
+                            <img src="assets/images/thumbs/gallery5.png" alt="">
+                            <a href="https://www.instagram.com" class="gallery-list__link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="gallery-list__item">
+                            <img src="assets/images/thumbs/gallery6.png" alt="">
+                            <a href="https://www.instagram.com" class="gallery-list__link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- bottom Footer -->
+<div class="bottom-footer ">
+    <div class="container container-two">
+        <div class="bottom-footer__inner flx-between gap-3">
+            <p class="bottom-footer__text"> &copy; CityScape 2024 | All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Terms & Condition</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
