@@ -8,6 +8,7 @@ foreach ($branch in $branches) {
     Write-Host $branch
     git checkout $branch
     git merge main
+    git push origin $branch
     git pull origin $branch
 }
 

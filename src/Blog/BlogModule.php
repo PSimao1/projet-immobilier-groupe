@@ -3,53 +3,26 @@
 namespace App\Blog;
 
 
-use Framework\Renderer\RendererInterface;
+use Framework\Module;
 use Framework\Router;     
+use App\Blog\Actions\BlogAction;
+use Framework\Renderer\RendererInterface;
 use Psr\Http\Message\ServerRequestInterface as Request; 
 
 
-class BlogModule
+class BlogModule extends Module
 {
 
-    private $renderer;
-    
+    const DEFINITIONS = __DIR__ . '/config.php';
 
-    public function __construct(Router $router, RendererInterface $renderer)
+
+
+    public function __construct(string $prefix, Router $router, RendererInterface $renderer)
     {
 
-        $this->renderer = $renderer;
-
-        $this->renderer->addPath('blog', __DIR__ . '/views');
-
-        $router->get('/blog', [$this, 'index'], 'blog.index');
-        
-        $router->get('/blog/{slug}', [$this, 'show'], 'blog.show');
-    }
-    
-    /**
-     * Méthode pour afficher la page d'index du blog (liste des articles)
-     * 
-     * @param Request $request - La requête HTTP
-     * @return string - Le HTML généré
-     */
-    public function index(): string
-    {
-        
-        return $this->renderer->render('@blog/index');
-    }
-    
-    /**
-     * Méthode pour afficher un article spécifique
-     * 
-     * @param Request $request - La requête HTTP
-     * @return string - Le HTML généré
-     */
-    public function show(Request $request): string
-    {
-    
-        return $this->renderer->render('@blog/show', [
-
-            'slug' => $request->getAttribute('slug')
-        ]);
+        $renderer->addPath('blog', __DIR__ . '/views');
+        $router->get($prefix, BlogAction::class, 'blog.index');
+        $router->get($prefix . '/{slug}', BlogAction::class, 'blog.show');
+  
     }
 }

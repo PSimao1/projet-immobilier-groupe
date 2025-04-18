@@ -6,14 +6,14 @@ use DI\ContainerBuilder;
 
 $modules = [
     \App\Blog\BlogModule::class, 
-    \App\Faq\FaqModule::class, 
-    \App\About\AboutModule::class,
-    \App\Account\AccountModule::class,
-    \App\Contact\ContactModule::class,
-    \App\Cart\CartModule::class,
-    \App\Home\HomeModule::class,
-    \App\Project\ProjectModule::class,
-    \App\Properties\PropertiesModule::class
+    // \App\Faq\FaqModule::class, 
+    // \App\About\AboutModule::class,
+    // \App\Account\AccountModule::class,
+    // \App\Contact\ContactModule::class,
+    // \App\Cart\CartModule::class,
+       \App\Home\HomeModule::class,
+    // \App\Project\ProjectModule::class,
+    // \App\Properties\PropertiesModule::class
 ];
 
 $builder = new ContainerBuilder();
