@@ -7,7 +7,7 @@ use Framework\Module;
 use Framework\Router;     
 use App\Home\Actions\HomeAction;
 use Framework\Renderer\RendererInterface;
-use Psr\Http\Message\ServerRequestInterface as Request; 
+
 
 
 class HomeModule extends Module
@@ -19,7 +19,7 @@ class HomeModule extends Module
     {
 
         $renderer->addPath('home', __DIR__ . '/views');
-        $router->get('/', HomeAction::class, 'home.index');
+        $router->get($prefix, HomeAction::class, 'home.index');
     }
     
 }

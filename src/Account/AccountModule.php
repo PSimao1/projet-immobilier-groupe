@@ -1,38 +1,24 @@
 <?php
 
-namespace App\Account;
+namespace App\account;
 
+use Framework\Module;
 
-use Framework\Renderer\RendererInterface;
 use Framework\Router;     
-use Psr\Http\Message\ServerRequestInterface as Request; 
+use App\Account\Actions\AccountAction;
+use Framework\Renderer\RendererInterface;
 
 
-class AccountModule
+class AccountModule extends Module
 {
+    const DEFINITIONS = __DIR__ . '/config.php';
 
-    private $renderer;
-    
 
-    public function __construct(Router $router, RendererInterface $renderer)
+    public function __construct(string $prefix, Router $router, RendererInterface $renderer)
     {
 
-        $this->renderer = $renderer;
-
-        $this->renderer->addPath('account', __DIR__ . '/views');
-
-        $router->get('/account', [$this, 'index'], 'account.index');
+        $renderer->addPath('account', __DIR__ . '/views');
+        $router->get($prefix, AccountAction::class, 'account.index');
     }
     
-    /**
-     * Méthode pour afficher la page d'index du account (liste des articles)
-     * 
-     * @param Request $request - La requête HTTP
-     * @return string - Le HTML généré
-     */
-    public function index(): string
-    {
-        
-        return $this->renderer->render('@account/index');
-    }
 }

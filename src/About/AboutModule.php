@@ -3,36 +3,22 @@
 namespace App\About;
 
 
-use Framework\Renderer\RendererInterface;
+use Framework\Module;
 use Framework\Router;     
-use Psr\Http\Message\ServerRequestInterface as Request; 
+use App\About\Actions\AboutAction;
+use Framework\Renderer\RendererInterface;
 
 
-class AboutModule
+class AboutModule extends Module
 {
+    const DEFINITIONS = __DIR__ . '/config.php';
 
-    private $renderer;
-    
 
-    public function __construct(Router $router, RendererInterface $renderer)
+    public function __construct(string $prefix, Router $router, RendererInterface $renderer)
     {
 
-        $this->renderer = $renderer;
-
-        $this->renderer->addPath('about', __DIR__ . '/views');
-
-        $router->get('/about', [$this, 'index'], 'about.index');
+        $renderer->addPath('about', __DIR__ . '/views');
+        $router->get($prefix, AboutAction::class, 'about.index');
     }
     
-    /**
-     * Méthode pour afficher la page d'index du about (liste des articles)
-     * 
-     * @param Request $request - La requête HTTP
-     * @return string - Le HTML généré
-     */
-    public function index(): string
-    {
-        
-        return $this->renderer->render('@about/index');
-    }
 }

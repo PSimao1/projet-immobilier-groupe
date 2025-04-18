@@ -3,36 +3,27 @@
 namespace App\Project;
 
 
-use Framework\Renderer\RendererInterface;
+use Framework\Module;
 use Framework\Router;     
-use Psr\Http\Message\ServerRequestInterface as Request; 
+
+use App\Project\Actions\ProjectAction;
+use Framework\Renderer\RendererInterface;
 
 
-class ProjectModule
+
+class ProjectModule extends Module
 {
 
-    private $renderer;
-    
+    const DEFINITIONS = __DIR__ . '/config.php';
 
-    public function __construct(Router $router, RendererInterface $renderer)
+
+
+    public function __construct(string $prefix, Router $router, RendererInterface $renderer)
     {
 
-        $this->renderer = $renderer;
-
-        $this->renderer->addPath('project', __DIR__ . '/views');
-
-        $router->get('/project', [$this, 'index'], 'project.index');
-    }
-    
-    /**
-     * Méthode pour afficher la page d'index du project (liste des articles)
-     * 
-     * @param Request $request - La requête HTTP
-     * @return string - Le HTML généré
-     */
-    public function index(): string
-    {
-        
-        return $this->renderer->render('@project/index');
+        $renderer->addPath('project', __DIR__ . '/views');
+        $router->get($prefix, ProjectAction::class, 'project.index');
+        $router->get($prefix . '/{slug}', ProjectAction::class, 'project.show');
+  
     }
 }

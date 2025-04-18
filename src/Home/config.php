@@ -6,6 +6,6 @@ use function DI\autowire;
 use function \DI\get;
 
 return [
-    'home.prefix' => '/home',
+    'home.prefix' => '/',
     HomeModule::class => autowire()->constructorParameter('prefix', get('home.prefix'))
 ];

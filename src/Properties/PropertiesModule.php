@@ -3,53 +3,28 @@
 namespace App\Properties;
 
 
-use Framework\Renderer\RendererInterface;
+use Framework\Module;
+
+
 use Framework\Router;     
-use Psr\Http\Message\ServerRequestInterface as Request; 
+use Framework\Renderer\RendererInterface;
+use App\Properties\Actions\PropertiesAction;
 
 
-class PropertiesModule
+
+class PropertiesModule extends Module
 {
 
-    private $renderer;
-    
+    const DEFINITIONS = __DIR__ . '/config.php';
 
-    public function __construct(Router $router, RendererInterface $renderer)
+
+
+    public function __construct(string $prefix, Router $router, RendererInterface $renderer)
     {
 
-        $this->renderer = $renderer;
-
-        $this->renderer->addPath('properties', __DIR__ . '/views');
-
-        $router->get('/properties', [$this, 'index'], 'properties.index');
-        
-        $router->get('/properties/{slug}', [$this, 'show'], 'properties.show');
-    }
-    
-    /**
-     * Méthode pour afficher la page d'index du properties (liste des articles)
-     * 
-     * @param Request $request - La requête HTTP
-     * @return string - Le HTML généré
-     */
-    public function index(): string
-    {
-        
-        return $this->renderer->render('@properties/index');
-    }
-    
-    /**
-     * Méthode pour afficher un article spécifique
-     * 
-     * @param Request $request - La requête HTTP
-     * @return string - Le HTML généré
-     */
-    public function show(Request $request): string
-    {
-    
-        return $this->renderer->render('@properties/show', [
-
-            'slug' => $request->getAttribute('slug')
-        ]);
+        $renderer->addPath('properties', __DIR__ . '/views');
+        $router->get($prefix, PropertiesAction::class, 'properties.index');
+        $router->get($prefix . '/{slug}', PropertiesAction::class, 'properties.show');
+  
     }
 }
