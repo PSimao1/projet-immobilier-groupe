@@ -25,7 +25,7 @@ class Router
      * @param string $name
      */
 
-    public function get(string $path, callable $callable, string $name):void
+    public function get(string $path, $callable, string $name):void
     {
         $this->routes[$name] = [
             'path' => $path,
