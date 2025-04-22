@@ -1,8 +1,9 @@
 <?php
 
-require '../vendor/autoload.php';
+require dirname(__DIR__) . '../vendor/autoload.php';
 
 use DI\ContainerBuilder;
+use GuzzleHttp\Psr7\ServerRequest;
 
 $modules = [
     \App\Blog\BlogModule::class, 
@@ -26,5 +27,8 @@ foreach($modules as $module) {
 $container = $builder->build();
 
 $app = new \Framework\App($container, $modules);
-$response = $app->run(\GuzzleHttp\Psr7\ServerRequest::fromGlobals());
-\Http\Response\send($response);
+if (php_sapi_name() !== "cli")
+{
+    $response = $app->run(ServerRequest::fromGlobals());
+    \Http\Response\send($response);
+}
