@@ -1,4 +1,4 @@
-$branches = @("Alexis", "David", "Estelle", "Nicolas", "Noémy", "Simao", "Tory") # Mettre toute les branches
+$branches = @("Alexis", "David", "Estelle", "Nicolas", "Noémy", "Simao", "Tory", "Eliass") # Mettre toute les branches
 
 Write-Host "Liste des branches :"
 git checkout main
