@@ -20,4 +20,10 @@ class CartAction
     {
         return $this->renderer->render('@cart/index');
     }
+    public function show(string $slug): string
+    {
+        return $this->renderer->render('@cart/show', [
+            'slug' => $slug
+        ]);
+    }
 }
