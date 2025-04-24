@@ -10,7 +10,7 @@ class AccountSeeder extends AbstractSeed
         $data = [];
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 0; $i < 20; ++$i) {
+        for ($i = 0; $i < 10; ++$i) {
             $date = $faker->unixTime('now');
             $data[] = [
                 'created_at' => date('Y-m-d H:i:s', $date),
@@ -21,7 +21,7 @@ class AccountSeeder extends AbstractSeed
                 'phone_number' => $faker->phoneNumber(),
                 'password' => $faker->password(),
                 'address' => $faker->address(),
-                'role' => $faker->randomElement(['admin', 'user', 'moderateur']),
+                'role' => json_encode($faker->randomElement(['admin', 'user', 'moderateur'])),
                 'is_valid' => $faker->boolean(),
                 'last_login' => $faker->dateTimeThisYear()->format('Y-m-d H:i:s'),
                 'picture' => $faker->imageUrl(200, 200, 'people')
@@ -30,6 +30,5 @@ class AccountSeeder extends AbstractSeed
         $this->table('users')
             ->insert($data)
             ->save();
-        }
-    
+    }
 }

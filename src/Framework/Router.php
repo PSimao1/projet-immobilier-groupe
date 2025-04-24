@@ -57,7 +57,13 @@ class Router
             ]);
         };
     }
-
+    
+    /**
+     * match
+     *
+     * @param  mixed $request
+     * @return Route
+     */
     public function match(ServerRequestInterface $request): ?Route
     {
         $laminasRequest = new LaminasRequest();
@@ -86,7 +92,14 @@ class Router
         }
         return null;
     }
-
+    
+    /**
+     * generateUri
+     *
+     * @param  mixed $name
+     * @param  mixed $params
+     * @return string
+     */
     public function generateUri($name, array $params = []): ?string
     {
         try {

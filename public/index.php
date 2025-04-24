@@ -20,7 +20,6 @@ $modules = [
 $builder = new ContainerBuilder();
 $builder->addDefinitions(dirname(__DIR__) . '/config/config.php');
 foreach($modules as $module) {
-    echo $module;
     if($module::DEFINITIONS) {
         $builder->addDefinitions($module::DEFINITIONS);
     }
