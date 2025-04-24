@@ -15,7 +15,11 @@ final class BlogTable extends AbstractMigration
             'null' => false
             ])
         ->addColumn('slug', 'text', ['null' => false])
-        ->addColumn('username', 'text', ['null' => false])
+        ->addColumn('user_id', 'integer')
+        ->addForeignKey('user_id', 'users', 'id', [
+            'delete' => 'CASCADE',
+            'update' => 'NO_ACTION'
+        ])
         ->create();
     }
 }

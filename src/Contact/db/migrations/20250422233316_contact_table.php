@@ -18,4 +18,3 @@ final class ContactTable extends AbstractMigration
         ->create();
     }
 }
-

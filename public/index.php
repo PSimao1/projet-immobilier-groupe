@@ -8,18 +8,19 @@ use GuzzleHttp\Psr7\ServerRequest;
 $modules = [
     \App\Blog\BlogModule::class, 
     \App\Faq\FaqModule::class, 
-      \App\About\AboutModule::class,
-    \App\Account\AccountModule::class,
+    \App\About\AboutModule::class,
     \App\Contact\ContactModule::class,
-     \App\Cart\CartModule::class,
-       \App\Home\HomeModule::class,
+    \App\Cart\CartModule::class,
+    \App\Home\HomeModule::class,
     \App\Project\ProjectModule::class,
-     \App\Properties\PropertiesModule::class
+    \App\Properties\PropertiesModule::class,
+    \App\Account\AccountModule::class
 ];
 
 $builder = new ContainerBuilder();
 $builder->addDefinitions(dirname(__DIR__) . '/config/config.php');
 foreach($modules as $module) {
+    echo $module;
     if($module::DEFINITIONS) {
         $builder->addDefinitions($module::DEFINITIONS);
     }

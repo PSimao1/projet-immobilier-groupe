@@ -19,12 +19,21 @@ final class CartTable extends AbstractMigration
         ->addColumn('arrival_date', 'datetime', ['null' => false])
         ->addColumn('departure_date', 'datetime', ['null' => false])
         ->addColumn('payment_method', 'string', ['null' => false])
-        ->addColumn('username', 'text', ['null' => false])
         ->addColumn('located_property', 'integer', ['null' => false])
         ->addColumn('unique_payment_id', 'integer', ['null' => false])
         ->addColumn('status', 'enum', [
             'values' => ['En Cours', 'Remboursé', 'Annulé', 'Livré'],
             'null' => false])
+            ->addColumn('user_id', 'integer')
+            ->addColumn('property_id', 'integer')
+            ->addForeignKey('user_id', 'users', 'id', [
+                'delete' => 'CASCADE',
+                'update' => 'NO_ACTION'
+            ])
+            ->addForeignKey('property_id', 'properties', 'id', [
+                'delete' => 'CASCADE',
+                'update' => 'NO_ACTION'
+            ])
         ->create();
     }
 }
