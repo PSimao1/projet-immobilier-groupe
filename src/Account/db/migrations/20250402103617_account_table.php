@@ -21,11 +21,12 @@ final class AccountTable extends AbstractMigration
         ->addColumn('phone_number', 'string', ['null' => false])
         ->addColumn('password', 'string', ['null' => false])
         ->addColumn('address', 'string', ['null' => false])
-        ->addColumn('role', 'string', ['null' => false])
+        ->addColumn('role', 'json', ['null' => false])
         ->addColumn('is_valid', 'boolean', ['null' => false])
         ->addColumn('last_login', 'datetime', ['null' => false])
         ->addColumn('picture', 'string', ['null' => false])
         ->addColumn('email', 'string', ['null' => false])
+        ->addIndex(['email'], ['unique' => true])
         ->addColumn('created_at', 'datetime', ['null' => false])
         ->addColumn('updated_at', 'datetime', ['null' => false])
         ->create();

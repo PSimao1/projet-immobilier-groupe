@@ -6,6 +6,11 @@ final class PropertiesTable extends AbstractMigration
 {
     public function change(): void
     {
+        if($this->hasTable('properties'))
+        {
+            $this->table('properties')->drop()->save();
+        }
+        
         $this->table('properties', ['id' => false, 'primary_key' => ['id']])
             ->addColumn('id', 'integer', ['identity' => true])
             ->addColumn('title', 'string', ['null' => false])
@@ -13,7 +18,6 @@ final class PropertiesTable extends AbstractMigration
                 'limit' => \Phinx\Db\Adapter\MysqlAdapter::TEXT_LONG,
                 'null' => false
                 ])
-            //->addColumn('sub_category', 'integer')
             ->addColumn('price', 'decimal', [
                 'precision' => 11, 'scale' => 2,
                 'null' => false
@@ -57,8 +61,13 @@ final class PropertiesTable extends AbstractMigration
             ->addColumn('country', 'string', ['null' => false])
             ->addColumn('longitude', 'string', ['null' => false])
             ->addColumn('latitude', 'string', ['null' => false])
-            ->addColumn('user_id', 'integer')
-            ->addForeignKey('user_id', 'users', 'id', [
+            ->addColumn('users_id', 'integer')
+            ->addForeignKey('users_id', 'users', 'id', [
+                'delete' => 'CASCADE',
+                'update' => 'NO_ACTION'
+            ])
+            ->addColumn('category_id', 'integer')
+            ->addForeignKey('category_id', 'categories', 'id', [
                 'delete' => 'CASCADE',
                 'update' => 'NO_ACTION'
             ])

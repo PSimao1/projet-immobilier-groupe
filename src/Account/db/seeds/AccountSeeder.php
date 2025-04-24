@@ -27,7 +27,7 @@ class AccountSeeder extends AbstractSeed
                 'picture' => $faker->imageUrl(200, 200, 'people')
             ];
         }
-        $this->table('Account')
+        $this->table('users')
             ->insert($data)
             ->save();
         }
