@@ -6,22 +6,50 @@ use Phinx\Seed\AbstractSeed;
 
 class BlogSeeder extends AbstractSeed
 {
+    public function getDependencies(): array
+    {
+        return [
+            'AccountSeeder'
+        ];
+    }
+
     public function run(): void
     {
-        $data = [];
+        $blogs = [];
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 0; $i <= 100; ++$i) {
+        for ($i = 0; $i <= 20; ++$i) {
             $date = $faker->unixTime('now');
-            $data[] = [
+            $blogs[] = [
                 'created_at' => date('Y-m-d H:i:s', $date),
                 'updated_at' => date('Y-m-d H:i:s', $date),
                 'title' => $faker->catchPhrase(),            
                 'description' => $faker->text(3000),
                 'slug' => $faker->slug(),
-                'username'=>$faker->userName(),
             ];
         }
+
+        $faker  = \Faker\Factory::create('fr_FR');
+        $data = [];
+        $date = $faker->unixTime('now');
+
+        $item = $this->fetchAll('SELECT id FROM users');
+
+        foreach($blogs as $key => $blog)
+        {
+            $getItem = array_rand($item);
+            $userItem = $item[$getItem]['id'];
+
+            $data[] = [
+                'title' => $blog['title'],
+                'slug' => $blog['slug'],
+                'description' => $blog['description'],
+                'created_at' => date('Y-m-d H:i:s', $date),
+                'updated_at' => date('Y-m-d H:i:s', $date),
+                'user_id' => $userItem
+            ];
+        }
+
         $this->table('blog')
             ->insert($data)
             ->save();
