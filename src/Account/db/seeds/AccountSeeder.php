@@ -5,7 +5,6 @@ use Phinx\Seed\AbstractSeed;
 
 class AccountSeeder extends AbstractSeed
 {
-
     public function run(): void
     {
         $data = [];
