@@ -10,7 +10,7 @@ class AccountSeeder extends AbstractSeed
         $data = [];
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 0; $i < 10; ++$i) {
+        for ($i = 0; $i < 20; ++$i) {
             $date = $faker->unixTime('now');
             $data[] = [
                 'created_at' => date('Y-m-d H:i:s', $date),

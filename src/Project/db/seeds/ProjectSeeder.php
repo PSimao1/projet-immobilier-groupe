@@ -6,6 +6,13 @@ use Phinx\Seed\AbstractSeed;
 
 class ProjectSeeder extends AbstractSeed
 {
+    public function getDependencies(): array
+    {
+        return [
+            'CategorySeeder'
+        ];
+    }
+
     public function run(): void
     {
         $faker = \Faker\Factory::create('fr_FR');
