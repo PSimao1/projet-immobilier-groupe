@@ -5,7 +5,6 @@ use Phinx\Migration\AbstractMigration;
 
 final class AccountTable extends AbstractMigration
 {
-
     public function change(): void
     {
         $this->table('users', [

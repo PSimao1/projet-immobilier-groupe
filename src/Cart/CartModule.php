@@ -12,7 +12,15 @@ class CartModule extends Module
     const DEFINITIONS = __DIR__ . '/config.php';
     const MIGRATIONS = __DIR__ . '/db/migrations';
     const SEEDS = __DIR__ . '/db/seeds';
-
+    
+    /**
+     * __construct
+     *
+     * @param  mixed $prefix
+     * @param  mixed $router
+     * @param  mixed $renderer
+     * @return void
+     */
     public function __construct(string $prefix, Router $router, RendererInterface $renderer)
     {
         $renderer->addPath('cart', __DIR__ . '/views');
