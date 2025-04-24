@@ -8,7 +8,14 @@ final class AccountTable extends AbstractMigration
 
     public function change(): void
     {
-        $this->table('Account')
+        $this->table('users', [
+                'id' => false, 
+                'primary_key' => ['id']
+            ]
+        )
+        ->addColumn('id', 'integer', [
+            'identity' => true
+        ])
         ->addColumn('last_name', 'string', ['null' => false])
         ->addColumn('first_name', 'string', ['null' => false])
         ->addColumn('phone_number', 'string', ['null' => false])

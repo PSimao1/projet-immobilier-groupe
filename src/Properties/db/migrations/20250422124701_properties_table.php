@@ -57,6 +57,11 @@ final class PropertiesTable extends AbstractMigration
             ->addColumn('country', 'string', ['null' => false])
             ->addColumn('longitude', 'string', ['null' => false])
             ->addColumn('latitude', 'string', ['null' => false])
+            ->addColumn('user_id', 'integer')
+            ->addForeignKey('user_id', 'users', 'id', [
+                'delete' => 'CASCADE',
+                'update' => 'NO_ACTION'
+            ])
             ->create();
     }
 }
