@@ -29,7 +29,7 @@ class HomeAction
         $blog = $this->homeTable->showThreeBlog();
 
         return $this->renderer->render('@home/index', [
-            'property'=> $properties,
+            'properties'=> $properties,
             'blog'=> $blog
         ]);
     }
