@@ -9,7 +9,6 @@ class FaqSeeder extends AbstractSeed
 
     public function run(): void
     {
-
         $data = [];
         $faker  = \Faker\Factory::create('fr_FR');
         $date = $faker->unixTime('now');
@@ -19,9 +18,9 @@ class FaqSeeder extends AbstractSeed
                 'updated_at' => date('Y-m-d H:i:s', $date),
                 'request' => $faker->text(),
                 'response' => $faker->paragraph(2, true),
-
             ];
         }
+        
         $this->table('faq')
             ->insert($data)
             ->save();

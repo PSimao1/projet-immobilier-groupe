@@ -29,7 +29,6 @@ class BlogSeeder extends AbstractSeed
             ];
         }
 
-        $faker  = \Faker\Factory::create('fr_FR');
         $data = [];
         $date = $faker->unixTime('now');
 

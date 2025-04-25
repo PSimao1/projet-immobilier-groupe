@@ -14,8 +14,8 @@ class CartSeeder extends AbstractSeed
 
     public function run(): void
     {
-        $carts = [];
         $faker = Faker\Factory::create('fr_FR');
+        $carts = [];
 
         for ($i = 0; $i <= 20; ++$i) {
             $date = $faker->unixTime('now');
@@ -33,39 +33,35 @@ class CartSeeder extends AbstractSeed
             ];
         }
 
-        $faker  = \Faker\Factory::create('fr_FR');
-        $data = [];
-        $date = $faker->unixTime('now');
-
         $uItem = $this->fetchAll('SELECT id FROM users');
         $pItem = $this->fetchAll('SELECT id FROM properties');
+        $data = [];
 
-        foreach($carts as $key => $cart)
-        {
+        foreach ($carts as $cart) {
             $getUser = array_rand($uItem);
-            $userItem= $uItem[$getUser]['id'];
+            $userItem = $uItem[$getUser]['id'];
 
             $getProp = array_rand($pItem);
-            $PropItem= $pItem[$getProp]['id'];
+            $PropItem = $pItem[$getProp]['id'];
 
             $data[] = [
-                'created_at' => date('Y-m-d H:i:s', $date),
-                'updated_at' => date('Y-m-d H:i:s', $date),
+                'created_at' => $cart['created_at'],
+                'updated_at' => $cart['updated_at'],
                 'slug' => $cart['slug'],
-                'total_price' => $cart['randomFloat'],
-                'arrival_date' => date('Y-m-d H:i:s', $date),
-                'departure_date' => date('Y-m-d H:i:s', $date),
-                'payment_method' => $cart['creditCardType'],
-                'located_property' =>rand(1, 100),
-                'unique_payment_id' => $cart['randomFloat'],
-                'status' => $cart['randomElement'],
+                'total_price' => $cart['total_price'],
+                'arrival_date' => $cart['arrival_date'],
+                'departure_date' => $cart['departure_date'],
+                'payment_method' => $cart['payment_method'],
+                'located_property' => $cart['located_property'],
+                'unique_payment_id' => $cart['unique_payment_id'],
+                'status' => $cart['status'],
                 'user_id' => $userItem,
                 'property_id' => $PropItem
             ];
         }
 
         $this->table('cart')
-            ->insert($cart)
+            ->insert($data)
             ->save();
-        }
+    }
 }
