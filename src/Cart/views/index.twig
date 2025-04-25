@@ -15,8 +15,8 @@
 		</svg>
 	</div>
 
+	<!--===================== Navbar Mobile ===============================-->
 	{% include 'navmobil.twig' %}
-
 
 	<!-- ==================== Right Offcanvas Start Here ==================== -->
 	<div class="common-offcanvas d-lg-block d-none">
@@ -104,11 +104,15 @@
 	<main
 		class="body-bg">
 
+		<!--===================== Navbar =========================-->
 		{% include 'navbar.twig' %}
 
+		<!--=============== Breadcrumb =================-->
 		{% include 'thumb.twig' %}
 
-			<section class="cart padding-y-120"> <div class="container container-two">
+		<!--============================= Cart Section Start ===============================-->
+		<section class="cart padding-y-120">
+			<div class="container container-two">
 				<div class="row gy-4 justify-content-end">
 					<div class="col-lg-12">
 						<div class="overflow-auto">
@@ -124,175 +128,51 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td>
-													<div class="d-flex align-items-center gap-3">
-														<div class="cart-item__thumb">
-															<img src="assets/images/thumbs/property-1.png" alt="">
-														</div>
-														<div class="cart-item__content">
-															<h6 class="cart-item__title fw-500 font-18">
-																<a href="property.html" class="link">3 Rooms Manhattan</a>
-															</h6>
-															<p class="property-item__location d-flex gap-2 font-14">
-																<span class="icon text-gradient">
-																	<i class="fas fa-map-marker-alt"></i>
+										<p>{{ cart|length }} éléments dans le panier</p>
+											{% for item in cart %}
+												<tr>
+													<td>
+														<div class="d-flex align-items-center gap-3">
+															<div class="cart-item__thumb">
+																<img src="assets/images/thumbs/property-1.png" alt="">
+															</div>
+															<div class="cart-item__content">
+																<h6 class="cart-item__title fw-500 font-18">
+																	<a href="property.html" class="link">3 Rooms Manhattan</a>
+																</h6>
+																<p class="property-item__location d-flex gap-2 font-14">
+																	<span class="icon text-gradient">
+																		<i class="fas fa-map-marker-alt"></i>
+																	</span>
+																	{{ item.located_property }}
+																</p>
+																<span class="cart-item__price">Price:
+																	<span class="fw-500 text-heading">{{ item.total_price }}</span>
 																</span>
-																66 Broklyant, New York America
-															</p>
-															<span class="cart-item__price">Price:
-																<span class="fw-500 text-heading">$85.00</span>
-															</span>
+															</div>
 														</div>
-													</div>
-												</td>
-												<td>
-													<div class="cart-item__count">
-														<button data-decrease="data-decrease">
-															<i class="fas fa-minus"></i>
-														</button>
-														<input data-value="data-value" type="number" value="1">
-														<button data-increase="data-increase">
-															<i class="fas fa-plus"></i>
-														</button>
-													</div>
-												</td>
-												<td>
-													<h6 class="cart-item__totalPrice font-16 fw-500 mb-0">$75.00</h6>
-												</td>
-												<td>
-													<button type="button" class="rounded-btn delete-btn  text-danger bg-danger bg-opacity-10 flex-shrink-0">
-														<i class="fas fa-trash-alt"></i>
-													</button>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="d-flex align-items-center gap-3">
-														<div class="cart-item__thumb">
-															<img src="assets/images/thumbs/property-2.png" alt="">
+													</td>
+													<td>
+														<div class="cart-item__count">
+															<button data-decrease="data-decrease">
+																<i class="fas fa-minus"></i>
+															</button>
+															<input data-value="data-value" type="number" value="1">
+															<button data-increase="data-increase">
+																<i class="fas fa-plus"></i>
+															</button>
 														</div>
-														<div class="cart-item__content">
-															<h6 class="cart-item__title fw-500 font-18">
-																<a href="property.html" class="link">Wheel Bearing Retainer</a>
-															</h6>
-															<p class="property-item__location d-flex gap-2 font-14">
-																<span class="icon text-gradient">
-																	<i class="fas fa-map-marker-alt"></i>
-																</span>
-																66 Broklyant, New York America
-															</p>
-															<span class="cart-item__price">Price:
-																<span class="fw-500 text-heading">$85.00</span>
-															</span>
-														</div>
-													</div>
-												</td>
-												<td>
-													<div class="cart-item__count">
-														<button data-decrease="data-decrease">
-															<i class="fas fa-minus"></i>
+													</td>
+													<td>
+														<h6 class="cart-item__totalPrice font-16 fw-500 mb-0">{{ item.total_price }}</h6>
+													</td>
+													<td>
+														<button type="button" class="rounded-btn delete-btn  text-danger bg-danger bg-opacity-10 flex-shrink-0">
+															<i class="fas fa-trash-alt"></i>
 														</button>
-														<input data-value="data-value" type="number" value="1">
-														<button data-increase="data-increase">
-															<i class="fas fa-plus"></i>
-														</button>
-													</div>
-												</td>
-												<td>
-													<h6 class="cart-item__totalPrice font-16 fw-500 mb-0">$75.00</h6>
-												</td>
-												<td>
-													<button type="button" class="rounded-btn delete-btn  text-danger bg-danger bg-opacity-10 flex-shrink-0">
-														<i class="fas fa-trash-alt"></i>
-													</button>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="d-flex align-items-center gap-3">
-														<div class="cart-item__thumb">
-															<img src="assets/images/thumbs/property-3.png" alt="">
-														</div>
-														<div class="cart-item__content">
-															<h6 class="cart-item__title fw-500 font-18">
-																<a href="property.html" class="link">
-																	Your journey home owner ship</a>
-															</h6>
-															<p class="property-item__location d-flex gap-2 font-14">
-																<span class="icon text-gradient">
-																	<i class="fas fa-map-marker-alt"></i>
-																</span>
-																66 Broklyant, New York America
-															</p>
-															<span class="cart-item__price">Price:
-																<span class="fw-500 text-heading">$85.00</span>
-															</span>
-														</div>
-													</div>
-												</td>
-												<td>
-													<div class="cart-item__count">
-														<button data-decrease="data-decrease">
-															<i class="fas fa-minus"></i>
-														</button>
-														<input data-value="data-value" type="number" value="1">
-														<button data-increase="data-increase">
-															<i class="fas fa-plus"></i>
-														</button>
-													</div>
-												</td>
-												<td>
-													<h6 class="cart-item__totalPrice font-16 fw-500 mb-0">$75.00</h6>
-												</td>
-												<td>
-													<button type="button" class="rounded-btn delete-btn  text-danger bg-danger bg-opacity-10 flex-shrink-0">
-														<i class="fas fa-trash-alt"></i>
-													</button>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="d-flex align-items-center gap-3">
-														<div class="cart-item__thumb">
-															<img src="assets/images/thumbs/property-1.png" alt="">
-														</div>
-														<div class="cart-item__content">
-															<h6 class="cart-item__title fw-500 font-18">
-																<a href="property.html" class="link">3 Rooms Manhattan</a>
-															</h6>
-															<p class="property-item__location d-flex gap-2 font-14">
-																<span class="icon text-gradient">
-																	<i class="fas fa-map-marker-alt"></i>
-																</span>
-																66 Broklyant, New York America
-															</p>
-															<span class="cart-item__price">Price:
-																<span class="fw-500 text-heading">$85.00</span>
-															</span>
-														</div>
-													</div>
-												</td>
-												<td>
-													<div class="cart-item__count">
-														<button data-decrease="data-decrease">
-															<i class="fas fa-minus"></i>
-														</button>
-														<input data-value="data-value" type="number" value="1">
-														<button data-increase="data-increase">
-															<i class="fas fa-plus"></i>
-														</button>
-													</div>
-												</td>
-												<td>
-													<h6 class="cart-item__totalPrice font-16 fw-500 mb-0">$75.00</h6>
-												</td>
-												<td>
-													<button type="button" class="rounded-btn delete-btn  text-danger bg-danger bg-opacity-10 flex-shrink-0">
-														<i class="fas fa-trash-alt"></i>
-													</button>
-												</td>
-											</tr>
+													</td>
+												</tr>
+											{% endfor %}
 										</tbody>
 									</table>
 									<div class="mt-5 d-flex align-items-center gap-4 justify-content-between">
@@ -384,7 +264,6 @@
 			</div>
 		</section>
 		<!-- ============================= CTA section End ===================== -->
-
 
 		<!-- ==================== Footer Start Here ==================== -->
 		<footer class="footer padding-y-120 ">
