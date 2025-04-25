@@ -45,6 +45,8 @@ class BlogSeeder extends AbstractSeed
                 'description' => $blog['description'],
                 'created_at' => date('Y-m-d H:i:s', $date),
                 'updated_at' => date('Y-m-d H:i:s', $date),
+                'role' => json_encode($faker->randomElement(['admin', 'user', 'moderateur'])),
+                'picture' => $faker->imageUrl(270, 406, 'animals', true),
                 'user_id' => $userItem
             ];
         }

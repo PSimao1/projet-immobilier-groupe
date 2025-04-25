@@ -15,6 +15,8 @@ final class BlogTable extends AbstractMigration
             'null' => false
             ])
         ->addColumn('slug', 'text', ['null' => false])
+        ->addColumn('role', 'json', ['null' => false])
+        ->addColumn('picture', 'string', ['null' => false])
         ->addColumn('user_id', 'integer')
         ->addForeignKey('user_id', 'users', 'id', [
             'delete' => 'CASCADE',

@@ -117,13 +117,15 @@
 			<div class="row gy-4">
 				<div class="col-lg-8">
 
+					{% for item in items %}
+
 					<div class="blog-item blog-classic-item d-flex">
 						<div class="blog-item__thumb d-flex position-relative">
-							<a href="blog-details.html" class="blog-item__thumb-link">
-								<img src="/assets/images/thumbs/blog-classic1.png" class="cover-img" alt="">
+							<a href="{{ path('blog.show', {slug: item.slug}) }}" class="blog-item__thumb-link">
+								<img src="{{ item.picture }}" class="cover-img" alt="">
 							</a>
 							<span class="blog-item__date font-12">
-								23 DEC</span>
+								{{ item.created_at }}</span>
 						</div>
 						<div class="blog-item__content">
 							<ul class="text-list border-0 p-0 flx-align">
@@ -131,24 +133,18 @@
 									<span class="icon text-gradient">
 										<i class="far fa-user"></i>
 									</span>
-									<a href="#" class="link">By admin</a>
-								</li>
-								<li class="text-list__item font-12">
-									<span class="icon text-gradient">
-										<i class="far fa-comments"></i>
-									</span>
-									<a href="#" class="link">Comments (05)</a>
+									<a href="#" class="link">By {{ item.first_name }}</a>
 								</li>
 							</ul>
 							<h5 class="blog-item__title">
-								<a href="blog-details.html" class="blog-item__title-link">
-									Your journey to home ownership starts a here the satisfaction
+								<a href="{{ path('blog.show', {slug: item.slug}) }}" class="blog-item__title-link">
+									{{ item.title }}
 								</a>
 							</h5>
 							<p class="blog-item__desc font-18">
-								Real estate is a lucrative industry that involves the buying selliand renting of properties. It encompasses residential commercial and industrial properties Real estate agents play
+								{{ item.description }}
 							</p>
-							<a href="blog-details.html" class="btn btn-outline-main btn-outline-main-white">Read More
+							<a href="{{ path('blog.show', {slug: item.slug}) }}" class="btn btn-outline-main btn-outline-main-white">Read More
 								<span class="icon-right icon">
 									<i class="fas fa-arrow-right"></i>
 								</span>
@@ -156,122 +152,8 @@
 						</div>
 					</div>
 
-					<div class="blog-item blog-classic-item d-flex">
-						<div class="blog-item__thumb d-flex position-relative">
-							<a href="blog-details.html" class="blog-item__thumb-link">
-								<img src="/assets/images/thumbs/blog-classic2.png" class="cover-img" alt="">
-							</a>
-							<span class="blog-item__date font-12">
-								30 DEC</span>
-						</div>
-						<div class="blog-item__content">
-							<ul class="text-list border-0 p-0 flx-align">
-								<li class="text-list__item font-12">
-									<span class="icon text-gradient">
-										<i class="far fa-user"></i>
-									</span>
-									<a href="#" class="link">By admin</a>
-								</li>
-								<li class="text-list__item font-12">
-									<span class="icon text-gradient">
-										<i class="far fa-comments"></i>
-									</span>
-									<a href="#" class="link">Comments (07)</a>
-								</li>
-							</ul>
-							<h5 class="blog-item__title">
-								<a href="blog-details.html" class="blog-item__title-link">
-									Experience the best in real estate services  a here the  satisfaction
-								</a>
-							</h5>
-							<p class="blog-item__desc font-18">
-								Real estate is a lucrative industry that involves the buying selliand renting of properties. It encompasses residential commercial and industrial properties Real estate agents play
-							</p>
-							<a href="blog-details.html" class="btn btn-outline-main btn-outline-main-white">Read More
-								<span class="icon-right icon">
-									<i class="fas fa-arrow-right"></i>
-								</span>
-							</a>
-						</div>
-					</div>
-
-					<div class="blog-item blog-classic-item d-flex">
-						<div class="blog-item__thumb d-flex position-relative">
-							<a href="blog-details.html" class="blog-item__thumb-link">
-								<img src="/assets/images/thumbs/blog-classic3.png" class="cover-img" alt="">
-							</a>
-							<span class="blog-item__date font-12">
-								16 DEC</span>
-						</div>
-						<div class="blog-item__content">
-							<ul class="text-list border-0 p-0 flx-align">
-								<li class="text-list__item font-12">
-									<span class="icon text-gradient">
-										<i class="far fa-user"></i>
-									</span>
-									<a href="#" class="link">By admin</a>
-								</li>
-								<li class="text-list__item font-12">
-									<span class="icon text-gradient">
-										<i class="far fa-comments"></i>
-									</span>
-									<a href="#" class="link">Comments (02)</a>
-								</li>
-							</ul>
-							<h5 class="blog-item__title">
-								<a href="blog-details.html" class="blog-item__title-link">
-									Let us find the perfect property for you Elite Realty Services
-								</a>
-							</h5>
-							<p class="blog-item__desc font-18">
-								Real estate is a lucrative industry that involves the buying selliand renting of properties. It encompasses residential commercial and industrial properties Real estate agents play
-							</p>
-							<a href="blog-details.html" class="btn btn-outline-main btn-outline-main-white">Read More
-								<span class="icon-right icon">
-									<i class="fas fa-arrow-right"></i>
-								</span>
-							</a>
-						</div>
-					</div>
-
-					<div class="blog-item blog-classic-item d-flex">
-						<div class="blog-item__thumb d-flex position-relative">
-							<a href="blog-details.html" class="blog-item__thumb-link">
-								<img src="/assets/images/thumbs/blog-classic1.png" class="cover-img" alt="">
-							</a>
-							<span class="blog-item__date font-12">
-								24 DEC</span>
-						</div>
-						<div class="blog-item__content">
-							<ul class="text-list border-0 p-0 flx-align">
-								<li class="text-list__item font-12">
-									<span class="icon text-gradient">
-										<i class="far fa-user"></i>
-									</span>
-									<a href="#" class="link">By admin</a>
-								</li>
-								<li class="text-list__item font-12">
-									<span class="icon text-gradient">
-										<i class="far fa-comments"></i>
-									</span>
-									<a href="#" class="link">Comments (10)</a>
-								</li>
-							</ul>
-							<h5 class="blog-item__title">
-								<a href="blog-details.html" class="blog-item__title-link">
-									Investing in real estate made easy the door to your new home
-								</a>
-							</h5>
-							<p class="blog-item__desc font-18">
-								Real estate is a lucrative industry that involves the buying selliand renting of properties. It encompasses residential commercial and industrial properties Real estate agents play
-							</p>
-							<a href="blog-details.html" class="btn btn-outline-main btn-outline-main-white">Read More
-								<span class="icon-right icon">
-									<i class="fas fa-arrow-right"></i>
-								</span>
-							</a>
-						</div>
-					</div>
+					{% endfor %}
+					
 
 					<nav aria-label="Page navigation example">
 						<ul class="pagination common-pagination">

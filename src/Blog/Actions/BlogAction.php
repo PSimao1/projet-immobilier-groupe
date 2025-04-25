@@ -2,36 +2,60 @@
 
 namespace App\Blog\Actions;
 
-use Psr\Http\Message\ServerRequestInterface as Request;
+use Framework\Router;
+use Framework\Router\Route;
+use App\Blog\Table\BlogTable;
+use Framework\Actions\RouterAwareAction;
 use Framework\Renderer\RendererInterface;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class BlogAction
 {
-    public function __construct(
-        private RendererInterface $renderer
-    ){}
+    /**
+     * @var RendererInterface
+     */
+    private $renderer;
+
+    /**
+     * @var Router
+     */
+    private $router;
+    /**
+     * @var BlogTable
+     */
+    private $blogTable;
+
+    use RouterAwareAction;
+
+    public function __construct(RendererInterface $renderer, Router $router, BlogTable $blogTable)
+    {
+        $this->renderer = $renderer;
+        $this->router = $router;
+        $this->blogTable = $blogTable;
+    }
 
     public function __invoke(Request $request)
     {
-        $slug = $request->getAttribute('slug');
-
-        if ($slug) 
-        {
-            return $this->show($slug);
+        if ($request->getAttribute('slug')) {
+            return $this->show($request);
         }
-
         return $this->index();
     }
 
     public function index (): string
     {
-        return $this->renderer->render('@blog/index');
-    }
+        $items = $this->blogTable->findPaginated();
 
-    public function show(string $slug): string
+        return $this->renderer->render('@blog/index', compact('items'));
+    }
+    
+    
+    public function show(Request $request)
     {
+        $slug = $request->getAttribute('slug');
+        $blog = $this->blogTable->find($request->getAttribute('slug'));
         return $this->renderer->render('@blog/show', [
-            'slug' => $slug
+            'items' => $blog,
         ]);
     }
 }
