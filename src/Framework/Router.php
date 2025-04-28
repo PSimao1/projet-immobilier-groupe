@@ -1,131 +1,60 @@
 <?php
+
 namespace Framework;
 
-use Framework\Router\Route; // Notre propre classe Route
-use Psr\Http\Message\ServerRequestInterface; // Interface standard PSR-7 pour une requête HTTP
-use Laminas\Router\Http\TreeRouteStack; // Routeur fourni par Laminas
-use Laminas\Router\Http\Literal; // Type de route "fixe"
-use Laminas\Router\Http\Segment; // Type de route "avec paramètres"
-use Laminas\Http\PhpEnvironment\Request as LaminasRequest; // Représente une requête HTTP pour Laminas
-use Laminas\Router\RouteMatch; // Résultat d'une tentative de correspondance avec une route
+use Framework\Router\Route;
+use Psr\Http\Message\ServerRequestInterface;
+use Zend\Expressive\Router\FastRouteRouter;
+use Zend\Expressive\Router\Route as ZendRoute;
 
+/**
+ * Register and match routes
+ */
 class Router
 {
-    private TreeRouteStack $router;
-    private array $routes = [];
+    /**
+     * @var FastRouteRouter
+     */
+    private $router;
 
     public function __construct()
     {
-        $this->router = new TreeRouteStack();
+        $this->router = new FastRouteRouter();
     }
 
     /**
      * @param string $path
-     * @param callable $callable
+     * @param string|callable $callable
      * @param string $name
      */
-
-    public function get(string $path, $callable, string $name):void
+    public function get(string $path, $callable, string $name)
     {
-        $this->routes[$name] = [
-            'path' => $path,
-            'callback' => $callable,
-            'method' => 'GET',
-        ];
-
-        if(strpos($path, '{') !== false) {
-            $laminasPath = preg_replace('/{([^}]+)}/', ':$1', $path);
-            $this->router->addRoute($name, [
-                'type' => Segment::class,
-                'options' => [
-                    'route' => $laminasPath,
-                    'defaults' => [
-                        'method' => 'GET',
-                    ],
-                ]
-            ]);
-        }
-        else{
-            $this->router->addRoute($name, [
-                'type' => Literal::class,
-                'options' => [
-                    'route' => $path,
-                    'defaults' => [
-                        'method' => 'GET',
-                    ],
-                ]
-            ]);
-        };
+        $this->router->addRoute(new ZendRoute($path, $callable, ['GET'], $name));
     }
-    
+
     /**
-     * match
-     *
-     * @param  mixed $request
-     * @return Route
+     * @param ServerRequestInterface $request
+     * @return Route|null
      */
     public function match(ServerRequestInterface $request): ?Route
     {
-        $laminasRequest = new LaminasRequest();
-        $laminasRequest->setUri($request->getUri()->getPath());
-        $laminasRequest->setMethod($request->getMethod());
-
-        $result = $this->router->match($laminasRequest);
-
-        if ($result instanceof RouteMatch) {
-            $routeName = $result->getMatchedRouteName();
-            $callback = $this->routes[$routeName]['callback'] ?? null;
-
-            if (!$callback) {
-                return null;
-            }
-
-            $params = $result->getParams();
-
-            unset($params['controller'], $params['action'], $params['method']);
-
+        $result = $this->router->match($request);
+        if ($result->isSuccess()) {
             return new Route(
-                $routeName,
-                $callback,
-                $params
+                $result->getMatchedRouteName(),
+                $result->getMatchedMiddleware(),
+                $result->getMatchedParams()
             );
         }
         return null;
     }
-    
-    /**
-     * generateUri
-     *
-     * @param string $name
-     * @param array $params
-     * @param array $queryParams
-     * @return string
-     */
+
     public function generateUri(string $name, array $params = [], array $queryParams = []): ?string
     {
-        try {
-            $uri = $this->router->assemble($params, ['name' => $name]);
-
-            if (!empty($queryParams)) {
-                $uri .= '?' . http_build_query($queryParams);
-            }
-
-            return $uri;
-        } catch (\Exception $e) {
-            if (!isset($this->routes[$name])) {
-                return null;
-            }
-
-            $path = $this->routes[$name]['path'];
-            foreach ($params as $paramsName => $paramsValue) {
-                $path = str_replace("{{ $paramsName }}", $paramsValue, $path);
-            }
-
-            if (!empty($queryParams)) {
-                $path .= '?' . http_build_query($queryParams);
-            }
-
-            return $path;
-        }
+       $uri = $this->router->generateUri($name, $params);
+       if (!empty($queryParams)){
+        return $uri . '?' . http_build_query($queryParams);
+       }
+       return $uri;
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Blog\Table;
+namespace App\Properties\Table;
 
-use App\Blog\Entity\Post;
+use App\Properties\Entity\Post;
 use Pagerfanta\Pagerfanta;
 use App\Framework\Database\PaginatedQuery;
 
-class BlogTable
+class PropertyTable
 {
 
     /**
@@ -28,8 +28,8 @@ class BlogTable
     {
         $query= new PaginatedQuery(
             $this->pdo,
-            'SELECT * FROM blog ORDER BY created_at DESC',
-            'SELECT COUNT(id) FROM blog',
+            'SELECT * FROM properties',
+            'SELECT COUNT(id) FROM properties',
             Post::class
         );
         return (new Pagerfanta($query))
@@ -45,7 +45,7 @@ class BlogTable
     public function find(string $slug): Post
     {
         $query = $this->pdo
-            ->prepare('SELECT * FROM blog WHERE slug = ?');
+            ->prepare('SELECT * FROM properties WHERE slug = ?');
         $query->execute([$slug]);
         $query->setFetchMode(\PDO::FETCH_CLASS, Post::class);
         return $query->fetch();

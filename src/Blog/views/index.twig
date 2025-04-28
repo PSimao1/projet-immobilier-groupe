@@ -125,7 +125,7 @@
 								<img src="{{ item.picture }}" class="cover-img" alt="">
 							</a>
 							<span class="blog-item__date font-12">
-								{{ item.created_at }}</span>
+								{{ item.created_at|date('d/m/Y') }}</span>
 						</div>
 						<div class="blog-item__content">
 							<ul class="text-list border-0 p-0 flx-align">

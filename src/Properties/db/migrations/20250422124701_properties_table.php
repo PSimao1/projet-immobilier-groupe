@@ -13,6 +13,7 @@ final class PropertiesTable extends AbstractMigration
         
         $this->table('properties', ['id' => false, 'primary_key' => ['id']])
             ->addColumn('id', 'integer', ['identity' => true])
+            ->addColumn('slug', 'string', ['null' => false])
             ->addColumn('title', 'string', ['null' => false])
             ->addColumn('description', 'text', [
                 'limit' => \Phinx\Db\Adapter\MysqlAdapter::TEXT_LONG,
@@ -61,8 +62,8 @@ final class PropertiesTable extends AbstractMigration
             ->addColumn('country', 'string', ['null' => false])
             ->addColumn('longitude', 'string', ['null' => false])
             ->addColumn('latitude', 'string', ['null' => false])
-            ->addColumn('users_id', 'integer')
-            ->addForeignKey('users_id', 'users', 'id', [
+            ->addColumn('user_id', 'integer')
+            ->addForeignKey('user_id', 'users', 'id', [
                 'delete' => 'CASCADE',
                 'update' => 'NO_ACTION'
             ])

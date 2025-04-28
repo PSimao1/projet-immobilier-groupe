@@ -22,6 +22,7 @@
     "require": {
         "guzzlehttp/psr7": "^2.7",
         "http-interop/response-sender": "*",
+        "zendframework/zend-expressive-fastroute": "*",
         "twig/twig": "*",
         "laminas/laminas-diactoros": "^3.5",
         "laminas/laminas-router": "*",
