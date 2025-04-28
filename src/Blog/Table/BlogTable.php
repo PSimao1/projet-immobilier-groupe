@@ -2,6 +2,9 @@
 
 namespace App\Blog\Table;
 
+use App\Framework\Database\PaginatedQuery;
+use Pagerfanta\Pagerfanta;
+
 class BlogTable
 {
 
@@ -17,14 +20,19 @@ class BlogTable
 
     /**
      * Pagine les article
-     *
-     * @return \stdClass[]
+     * @param int $perPage
+     * @return Pagerfanta
      */
-    public function findPaginated(): array
+    public function findPaginated(int $perPage, int $currentPage): Pagerfanta
     {
-        return $this->pdo
-            ->query('SELECT * FROM blog ORDER BY created_at DESC LIMIT 10')
-            ->fetchAll();
+        $query= new PaginatedQuery(
+            $this->pdo,
+            'SELECT * FROM blog',
+            'SELECT COUNT(id) FROM blog'
+        );
+        return (new Pagerfanta($query))
+            ->setMaxPerPage($perPage)
+            ->setCurrentPage($currentPage);
     }
 
     /**

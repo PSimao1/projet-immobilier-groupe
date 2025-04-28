@@ -27,6 +27,7 @@
         "laminas/laminas-router": "*",
         "laminas/laminas-http": "^2.21",
         "php-di/php-di": "^7.0",
-        "fakerphp/faker": "^1.24"
+        "fakerphp/faker": "^1.24",
+        "pagerfanta/pagerfanta": "^4.7"
     }
 }
