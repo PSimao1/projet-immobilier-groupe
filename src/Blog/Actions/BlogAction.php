@@ -39,12 +39,13 @@ class BlogAction
         if ($request->getAttribute('slug')) {
             return $this->show($request);
         }
-        return $this->index();
+        return $this->index($request);
     }
 
-    public function index (): string
+    public function index (Request $request): string
     {
-        $items = $this->blogTable->findPaginated();
+        $params= $request->getQueryParams();
+        $items = $this->blogTable->findPaginated(6, $params['p'] ?? 1);
 
         return $this->renderer->render('@blog/index', compact('items'));
     }

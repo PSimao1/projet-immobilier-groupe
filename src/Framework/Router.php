@@ -96,22 +96,35 @@ class Router
     /**
      * generateUri
      *
-     * @param  mixed $name
-     * @param  mixed $params
+     * @param string $name
+     * @param array $params
+     * @param array $queryParams
      * @return string
      */
-    public function generateUri($name, array $params = []): ?string
+    public function generateUri(string $name, array $params = [], array $queryParams = []): ?string
     {
         try {
-            return $this->router->assemble($params, [ 'name' => $name ]);
+            $uri = $this->router->assemble($params, ['name' => $name]);
+
+            if (!empty($queryParams)) {
+                $uri .= '?' . http_build_query($queryParams);
+            }
+
+            return $uri;
         } catch (\Exception $e) {
-            if(!isset($this->routes[$name])) {
+            if (!isset($this->routes[$name])) {
                 return null;
             }
+
             $path = $this->routes[$name]['path'];
             foreach ($params as $paramsName => $paramsValue) {
                 $path = str_replace("{{ $paramsName }}", $paramsValue, $path);
             }
+
+            if (!empty($queryParams)) {
+                $path .= '?' . http_build_query($queryParams);
+            }
+
             return $path;
         }
     }
