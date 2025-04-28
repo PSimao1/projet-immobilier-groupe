@@ -13,8 +13,8 @@ final class ImageTable extends AbstractMigration
             ->addColumn('updated_at', 'datetime', ['null' => false])
             ->addColumn('name', 'string', ['null' => false])
             ->addColumn('position', 'integer', ['null' => false])
-            ->addColumn('properties_id', 'integer')
-            ->addForeignKey('properties_id', 'properties', 'id', [
+            ->addColumn('property_id', 'integer')
+            ->addForeignKey('property_id', 'properties', 'id', [
                 'delete' => 'CASCADE', 
                 'update' => 'NO_ACTION'
                 ])

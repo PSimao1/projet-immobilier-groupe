@@ -14,7 +14,7 @@ class HomeTable
         return $this->pdo
             ->query('SELECT properties.*, images.*
                     FROM properties
-                    LEFT JOIN images ON properties.id = images.properties_id
+                    LEFT JOIN images ON properties.id = images.property_id
                     ORDER BY properties.id DESC
                     LIMIT 6;')
             ->fetchAll();

@@ -3,12 +3,10 @@
 namespace App\Blog\Actions;
 
 use Framework\Router;
-use Framework\Router\Route;
 use App\Blog\Table\BlogTable;
 use Framework\Actions\RouterAwareAction;
 use Framework\Renderer\RendererInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
-
 class BlogAction
 {
     /**

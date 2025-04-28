@@ -37,6 +37,7 @@ class PropertiesSeeder extends AbstractSeed
 
                 $data[] = [
                     'title' => $type . ' ' . $faker->sentence(3),
+                    'slug' => $faker->slug(),
                     'description' => $faker->paragraph(10),
                     'price' => rand(1, 10),
                     'area' => rand(1, 10),
@@ -69,7 +70,7 @@ class PropertiesSeeder extends AbstractSeed
                     'country' => $faker->country(),
                     'longitude' => $faker->longitude(),
                     'latitude' => $faker->latitude(),
-                    'users_id' => $userId,
+                    'user_id' => $userId,
                     'category_id' => $categoryId,
                 ];
             }
