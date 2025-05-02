@@ -2,7 +2,7 @@
 
 namespace App\Properties\Entity;
 
-class Post 
+class Property
 {        
     /**
      * id
