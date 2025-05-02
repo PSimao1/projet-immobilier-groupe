@@ -21,6 +21,7 @@ class PropertiesSeeder extends AbstractSeed
 
         $users = $this->fetchAll('SELECT id FROM users');
         $categories = $this->fetchAll('SELECT id FROM categories');
+        $date = $faker->unixTime('now');
 
         $propertyTypes = [
             'Maison',
@@ -70,6 +71,8 @@ class PropertiesSeeder extends AbstractSeed
                     'country' => $faker->country(),
                     'longitude' => $faker->longitude(),
                     'latitude' => $faker->latitude(),
+                    'created_at' => date('Y-m-d H:i:s', $date),
+                    'updated_at' => date('Y-m-d H:i:s', $date),
                     'user_id' => $userId,
                     'category_id' => $categoryId,
                 ];
