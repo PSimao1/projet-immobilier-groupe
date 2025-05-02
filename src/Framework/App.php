@@ -28,6 +28,13 @@ class App
     public function run(ServerRequestInterface $request): ResponseInterface
     {
         $uri = $request->getUri()->getPath();
+        $parseBody= $request->getParsedBody();
+
+        if(array_key_exists('_method', $parseBody) &&
+            in_array($parseBody['_method'], ['DELETE', 'PUT'])
+        ){
+            $request = $request->withMethod($parseBody['_method']);
+        }
         if ($uri === "/index.php") {
             return (new Response())
                 ->withStatus(301)

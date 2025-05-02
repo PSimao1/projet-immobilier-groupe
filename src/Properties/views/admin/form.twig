@@ -1,0 +1,147 @@
+<div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="form-group">
+                    <label for="title">Titre</label>
+                    <input type="text" name="title" id="title" class="form-control" value="{{ item.title }}">
+                </div>
+                <div class="form-group">
+                    <label for="slug">Slug</label>
+                    <input type="text" name="slug" id="slug" class="form-control" value="{{ item.slug }}">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" name="description" id="description" class="form-control" value="{{ item.description }}">
+                </div>
+                <div class="form-group">
+                    <label for="price">Prix (€)</label>
+                    <input type="number" step="0.01" name="price" id="price" class="form-control" value="{{ item.price }}">
+                </div>
+                <div class="form-group">
+                    <label for="adress">Adresse</label>
+                    <input type="text" name="adress" id="adress" class="form-control" value="{{ item.adress }}">
+                </div>
+                <div class="form-group">
+                    <label for="zip_code">Code Postal</label>
+                    <input type="text" name="zip_code" id="zip_code" class="form-control" value="{{ item.zip_code }}">
+                </div>
+                <div class="form-group">
+                    <label for="city">Ville</label>
+                    <input type="text" name="city" id="city" class="form-control" value="{{ item.city }}">
+                </div>
+                <div class="form-group">
+                    <label for="country">Pays</label>
+                    <input type="text" name="country" id="country" class="form-control" value="{{ item.country }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="area">Surface</label>
+                    <input type="text" name="area" id="area" class="form-control" value="{{ item.area }}">
+                </div>
+                <div class="form-group">
+                    <label for="carrez">Carrez</label>
+                    <input type="text" name="carrez" id="carrez" class="form-control" value="{{ item.carrez }}">
+                </div>
+                <div class="form-group">
+                    <label for="land_area">Terrain</label>
+                    <input type="text" name="land_area" id="land_area" class="form-control" value="{{ item.land_area }}">
+                </div>
+                <div class="form-group">
+                    <label for="prefix_area">Préfixe Surface</label>
+                    <input type="text" name="prefix_area" id="prefix_area" class="form-control" value="{{ item.prefix_area }}">
+                </div>
+                <div class="form-group">
+                    <label for="rooms">Pièces</label>
+                    <input type="text" name="rooms" id="rooms" class="form-control" value="{{ item.rooms }}">
+                </div>
+                <div class="form-group">
+                    <label for="bedrooms">Chambres</label>
+                    <input type="text" name="bedrooms" id="bedrooms" class="form-control" value="{{ item.bedrooms }}">
+                </div>
+                <div class="form-group">
+                    <label for="bathrooms">Salles de bain</label>
+                    <input type="text" name="bathrooms" id="bathrooms" class="form-control" value="{{ item.bathrooms }}">
+                </div>
+                <div class="form-group">
+                    <label for="garages">Garages</label>
+                    <input type="text" name="garages" id="garages" class="form-control" value="{{ item.garages }}">
+                </div>
+                <div class="form-group">
+                    <label for="construction_year">Année Construction</label>
+                    <input type="text" name="construction_year" id="construction_year" class="form-control" value="{{ item.construction_year }}">
+                </div>
+
+                <!-- Boolean fields -->
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="ac" {% if item.ac == 1 %}checked{% endif %} id="ac" value="1">
+                    <label class="form-check-label" for="ac">Climatisation</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="swimming_pool" {% if item.swimming_pool == 1 %}checked{% endif %} id="swimming_pool" value="1">
+                    <label class="form-check-label" for="swimming_pool">Piscine</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="lawn" {% if item.lawn == 1 %}checked{% endif %} id="lawn" value="1">
+                    <label class="form-check-label" for="lawn">Jardin</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="barbecue" {% if item.barbecue == 1 %}checked{% endif %} id="barbecue" value="1">
+                    <label class="form-check-label" for="barbecue">Barbecue</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="microwave" {% if item.microwave == 1 %}checked{% endif %} id="microwave" value="1">
+                    <label class="form-check-label" for="microwave">Micro-ondes</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="television" {% if item.television == 1 %}checked{% endif %} id="television" value="1">
+                    <label class="form-check-label" for="television">Télévision</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="dryer" {% if item.dryer == 1 %}checked{% endif %} id="dryer" value="1">
+                    <label class="form-check-label" for="dryer">Sèche-linge</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="outdoor_shower" {% if item.outdoor_shower == 1 %}checked{% endif %} id="outdoor_shower" value="1">
+                    <label class="form-check-label" for="outdoor_shower">Douche extérieure</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="washer" {% if item.washer == 1 %}checked{% endif %} id="washer" value="1">
+                    <label class="form-check-label" for="washer">Lave-linge</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="gym" {% if item.gym == 1 %}checked{% endif %} id="gym" value="1">
+                    <label class="form-check-label" for="gym">Salle de sport</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="fridge" {% if item.fridge == 1 %}checked{% endif %} id="fridge" value="1">
+                    <label class="form-check-label" for="fridge">Réfrigérateur</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="wifi" {% if item.wifi == 1 %}checked{% endif %} id="wifi" value="1">
+                    <label class="form-check-label" for="wifi">Wi-Fi</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="laundry" {% if item.laundry == 1 %}checked{% endif %} id="laundry" value="1">
+                    <label class="form-check-label" for="laundry">Buanderie</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="sauna" {% if item.sauna == 1 %}checked{% endif %} id="sauna" value="1">
+                    <label class="form-check-label" for="sauna">Sauna</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="windows_curtains" {% if item.windows_curtains == 1 %}checked{% endif %} id="windows_curtains" value="1">
+                    <label class="form-check-label" for="windows_curtains">Rideaux aux fenêtres</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="latitude">Latitude</label>
+                    <input type="text" name="latitude" id="latitude" class="form-control" value="{{ item.latitude }}">
+                </div>
+                <div class="form-group">
+                    <label for="longitude">Longitude</label>
+                    <input type="text" name="longitude" id="longitude" class="form-control" value="{{ item.longitude }}">
+                </div>
+
+            </div>
+        </div>
+    </div>

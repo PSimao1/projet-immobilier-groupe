@@ -226,6 +226,21 @@ class Property
      *
      * @var mixed
      */
-    public $user_id; 
+    public $user_id;
+
+    /**
+     * created_at
+     *
+     * @var mixed
+     */
+    public $created_at;
+
+    /**
+     * updated_at
+     *
+     * @var mixed
+     */
+    public $updated_at;
+
 
 }

@@ -16,7 +16,7 @@ $modules = [
     \App\Properties\PropertiesModule::class,
     \App\Account\AccountModule::class,
 
-    \App\Properties\Actions\AdminPropertiesAction::class
+    \App\Admin\AdminModule::class
 ];
 
 $builder = new ContainerBuilder();

@@ -16,7 +16,7 @@ class AdminPropertiesAction
         private RendererInterface $renderer,
         private Router $router,
         private PropertyTable $propertyTable
-    ){}  
+    ){}
 
     public function __invoke(Request $request)
     {
@@ -42,23 +42,25 @@ class AdminPropertiesAction
     public function edit(Request $request)
     {
         $item = $this->propertyTable->find($request->getAttribute('id'));
+        var_dump($request->getAttribute('id'));
         if($request->getMethod()=== 'POST'){
             $params = $this->getParams($request);
             $params['updated_at'] = date('Y-m-d H:i:s');
-            $this->propertyTable->update($item->id, $params);
+            $a = $this->propertyTable->update($item->id, $params);
+            var_dump($a);
             return $this->redirect('properties.admin.index');
 
         }
         return $this->renderer->render('@properties/admin/edit', compact('item'));
     }
 
-    public function create(Request $request) 
+    public function create(Request $request)
     {
         if($request->getMethod()=== 'POST'){
             $params = $this->getParams($request);
             $params = array_merge($params, [
                 'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
+                'updated_at' => date('Y-m-d H:i:s'),
             ]);
             $this->propertyTable->insert($params);
             return $this->redirect('properties.admin.index');
@@ -67,7 +69,7 @@ class AdminPropertiesAction
         return $this->renderer->render('@properties/admin/create', compact('item'));
     }
 
-    public function delete(Request $request) 
+    public function delete(Request $request)
     {
         $this->propertyTable->delete($request->getAttribute('id'));
         return $this->redirect('properties.admin.index');
@@ -76,8 +78,16 @@ class AdminPropertiesAction
     function getParams(Request $request)
     {
         return array_filter($request->getParsedBody(), function($key){
-            return in_array($key, ['name', 'slug', 'title','bedrooms', 'bathrooms', 'price','adress','city','country']); // on  doit mettre tout pour la base de données??
+            return in_array($key, [
+                'slug', 'title', 'description', 'price', 'area', 'rooms', 'carrez',
+                'prefix_area', 'land_area', 'bedrooms', 'bathrooms', 'garages',
+                'construction_year', 'ac', 'swimming_pool', 'lawn', 'barbecue',
+                'microwave', 'television', 'dryer', 'outdoor_shower', 'washer',
+                'gym', 'fridge', 'wifi', 'laundry', 'sauna', 'windows_curtains',
+                'adress', 'zip_code', 'city', 'country', 'longitude', 'latitude'
+            ]);
+            // on doit mettre tout pour la base de données??
         }, ARRAY_FILTER_USE_KEY);
     }
-    
+
 }

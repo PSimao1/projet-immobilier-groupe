@@ -40,15 +40,15 @@ class PropertyTable
     /**
      * Récupère un article à partir de son ID
      * @param int $id
-     * @return Property
+     * @return Property|null
      */
-    public function find(string $slug): Property
+    public function find(string $slug): ?Property
     {
         $query = $this->pdo
-            ->prepare('SELECT * FROM properties WHERE slug = ?');
+            ->prepare('SELECT * FROM properties WHERE id = ?');
         $query->execute([$slug]);
         $query->setFetchMode(\PDO::FETCH_CLASS, Property::class);
-        return $query->fetch();
+        return $query->fetch() ?: null;
     }
 
     public function update(int $id, array $params): bool
@@ -74,7 +74,7 @@ class PropertyTable
             return ':' . $fields;
         }, $fields); 
         $stmt = $this->pdo->prepare(
-            "INSERT INTO posts (" .
+            "INSERT INTO properties (" .
                 join(',', $fields)
             . ") VALUES(" .
                 join(',', $values)
