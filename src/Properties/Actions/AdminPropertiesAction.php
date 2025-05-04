@@ -6,6 +6,7 @@ use Framework\Router;
 use App\Properties\Table\PropertyTable;
 use Framework\Actions\RouterAwareAction;
 use Framework\Renderer\RendererInterface;
+use Framework\Session\FlashService;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class AdminPropertiesAction
@@ -15,7 +16,8 @@ class AdminPropertiesAction
     public function __construct(
         private RendererInterface $renderer,
         private Router $router,
-        private PropertyTable $propertyTable
+        private PropertyTable $propertyTable,
+        private FlashService $flash
     ){}
 
     public function __invoke(Request $request)
@@ -36,18 +38,19 @@ class AdminPropertiesAction
     {
         $params = $request->getQueryParams();
         $items = $this->propertyTable->findPaginated(12, $params['p' ] ?? 1);
+        
         return $this->renderer->render('@properties/admin/index', compact('items'));
     }
 
     public function edit(Request $request)
     {
         $item = $this->propertyTable->find($request->getAttribute('id'));
-        var_dump($request->getAttribute('id'));
+
         if($request->getMethod()=== 'POST'){
             $params = $this->getParams($request);
             $params['updated_at'] = date('Y-m-d H:i:s');
-            $a = $this->propertyTable->update($item->id, $params);
-            var_dump($a);
+            $this->propertyTable->update($item->id, $params);
+            $this->flash->success('L\'article a bien été modifié');
             return $this->redirect('properties.admin.index');
 
         }
@@ -63,6 +66,8 @@ class AdminPropertiesAction
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
             $this->propertyTable->insert($params);
+            $this->flash->success('L\'article a bien été créé');
+
             return $this->redirect('properties.admin.index');
         }
         $item = [];
@@ -72,6 +77,7 @@ class AdminPropertiesAction
     public function delete(Request $request)
     {
         $this->propertyTable->delete($request->getAttribute('id'));
+        $this->flash->success('La propriété a bien été supprimée');
         return $this->redirect('properties.admin.index');
     }
 
