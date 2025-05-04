@@ -1,8 +1,11 @@
 <?php
 
-use App\Framework\Twig\PagerFantaExtension;
+use App\Framework\Twig\FlashExtension;
+use  Framework\Session\PHPSession;
+use Framework\Session\SessionInterface;
 use Framework\Renderer\RendererInterface;
 use Framework\Router\RouterTwigExtension;
+use App\Framework\Twig\PagerFantaExtension;
 use Framework\Renderer\TwigRendererFactory;
 
 return [
@@ -13,8 +16,10 @@ return [
     'views.path' => dirname(__DIR__) . '/views',
     'twig.extensions' => [
         \DI\get(RouterTwigExtension::class),
-        \DI\get(PagerfantaExtension::class)
+        \DI\get(PagerfantaExtension::class),
+        \DI\get(FlashExtension::class)
     ],
+    SessionInterface::class => \DI\autowire(PHPSession::class),
     \Framework\Router::class => \DI\autowire(),
     RendererInterface::class => \DI\factory(TwigRendererFactory::class),
     \PDO::class => function (\Psr\Container\ContainerInterface $c) 

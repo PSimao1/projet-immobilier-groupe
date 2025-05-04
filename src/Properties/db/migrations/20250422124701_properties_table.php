@@ -24,12 +24,12 @@ final class PropertiesTable extends AbstractMigration
                 'null' => false
                 ])
             ->addColumn('area', 'decimal', [
-                'precision' => 4, 'scale' => 2,
+                'precision' => 7, 'scale' => 2,
                 'null' => false
                 ])
             ->addColumn('rooms', 'integer', ['null' => false])
             ->addColumn('carrez', 'decimal', [
-                'precision' => 4, 'scale' => 2,
+                'precision' => 7, 'scale' => 2,
                 'null' => false
                 ])
             ->addColumn('prefix_area', 'string', ['null' => false])
