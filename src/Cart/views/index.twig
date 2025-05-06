@@ -138,16 +138,18 @@
 															</div>
 															<div class="cart-item__content">
 																<h6 class="cart-item__title fw-500 font-18">
-																	<a href="property.html" class="link">3 Rooms Manhattan</a>
+																	<a href="property.html" class="link">{{ item.title }}</a>
 																</h6>
 																<p class="property-item__location d-flex gap-2 font-14">
 																	<span class="icon text-gradient">
 																		<i class="fas fa-map-marker-alt"></i>
 																	</span>
-																	{{ item.located_property }}
+																	{{ item.adress }}
+																	{{ item.city }}
+																	{{ item.zip_code }}
 																</p>
 																<span class="cart-item__price">Price:
-																	<span class="fw-500 text-heading">{{ item.total_price }}</span>
+																	<span class="fw-500 text-heading">{{ item.price }}</span>
 																</span>
 															</div>
 														</div>

@@ -19,11 +19,16 @@ class CartTable
      *
      * @return \stdClass[]
      */
-    public function findAll(): array
+    public function findAllWithProperties(): array
     {
-        return $this->pdo
-            ->query('SELECT * FROM cart ORDER BY created_at DESC LIMIT 10')
-            ->fetchAll();
+        $stmt = $this->pdo->query(
+        'SELECT cart.*, properties.title, properties.adress, properties.zip_code, properties.city, properties.price
+        FROM cart
+        JOIN properties ON cart.property_id = properties.id
+        ORDER BY cart.created_at DESC
+        LIMIT 10'
+    );
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     /**
@@ -33,9 +38,22 @@ class CartTable
      */
     public function find(int $id): \stdClass
     {
-        $query = $this->pdo
-            ->prepare('SELECT * FROM cart WHERE id = ?');
+        $query = $this->pdo->prepare(
+            'SELECT
+            cart.id,
+            properties.title,
+            properties.adress,
+            properties.zip_code,
+            properties.city,
+            properties.price
+            FROM
+            cart
+            WHERE
+            id = ?
+            JOIN
+            properties ON cart.id = properties.id'
+        );
         $query->execute([$id]);
         return $query->fetch();
-    }
+    }  
 }

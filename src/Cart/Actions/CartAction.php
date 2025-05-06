@@ -24,14 +24,8 @@ class CartAction
 
     public function index(): string
     {
-        $cart = $this->cartTable->findAll();
+        $cart = $this->cartTable->findAllWithProperties();
         return $this->renderer->render('@cart/index', [
-            'cart' => $cart
-        ]);
-    }
-    public function show(string $slug): string
-    {
-        return $this->renderer->render('@cart/show', [
             'cart' => $cart
         ]);
     }
