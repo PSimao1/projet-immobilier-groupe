@@ -1,8 +1,12 @@
 <div class="container mt-5">
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                <div class="form-group">
-                    {{ dump(errors) }}
+                {{ field('title', item.title ?? '', "Titre de l'article") }}
+                {{ field('slug', item.slug ?? '', "Lien") }}
+                {{ field('description', item.description ?? '', "Description", {type: 'textarea'}) }}
+                {{ field('created_at', item.created_at ?? '', "Date de création", {class: 'datepicker'}) }}
+
+                {# <div class="form-group">
                     <label for="title">Titre</label>
                     <input type="text" name="title" id="title" class="form-control" value="{{ item.title }}">
                 </div>
@@ -13,7 +17,7 @@
                 <div class="form-group">
                     <label for="description">Description</label>
                     <input type="text" name="description" id="description" class="form-control" value="{{ item.description }}">
-                </div>
+                </div> #}
                 <div class="form-group">
                     <label for="price">Prix (€)</label>
                     <input type="number" step="0.01" name="price" id="price" class="form-control" value="{{ item.price }}">

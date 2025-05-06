@@ -49,10 +49,7 @@ class AdminPropertiesAction
         $errors = [];
 
         if($request->getMethod()=== 'POST'){
-            $params = $this->getParams($request);
-            $params['updated_at'] = date('Y-m-d H:i:s');
-
-            $validator = $this->getValidator($request);
+            $params = $this->getParams($request);  $validator = $this->getValidator($request);
             if ($validator->isValid()) {
                 $this->propertyTable->update($item->id, $params);
                 $this->flash->success('L\'article a bien été modifié');
@@ -69,13 +66,10 @@ class AdminPropertiesAction
 
     public function create(Request $request)
     {
+        $item= [];
+        $errors= [];
         if($request->getMethod()=== 'POST'){
             $params = $this->getParams($request);
-            $params = array_merge($params, [
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ]);
-            
             $validator = $this->getValidator($request);
             if ($validator->isValid()) {
                 $this->propertyTable->insert($params);
@@ -83,8 +77,7 @@ class AdminPropertiesAction
                 return $this->redirect('properties.admin.index');
             }
             $item = $params;
-            $errors = $validator->getErrors();
-            
+            $errors = $validator->getErrors();  
         }
 
         return $this->renderer->render('@properties/admin/create', compact('item', 'errors'));
@@ -99,9 +92,9 @@ class AdminPropertiesAction
 
     private function getParams(Request $request)
     {
-        return array_filter($request->getParsedBody(), function($key){
+        $params= array_filter($request->getParsedBody(), function($key){
             return in_array($key, [
-                'slug', 'title', 'description', 'price', 'area', 'rooms', 'carrez',
+                'slug', 'title', 'description', 'created_at', 'price', 'area', 'rooms', 'carrez',
                 'prefix_area', 'land_area', 'bedrooms', 'bathrooms', 'garages',
                 'construction_year', 'ac', 'swimming_pool', 'lawn', 'barbecue',
                 'microwave', 'television', 'dryer', 'outdoor_shower', 'washer',
@@ -110,6 +103,9 @@ class AdminPropertiesAction
             ]);
             // on doit mettre tout pour la base de données??
         }, ARRAY_FILTER_USE_KEY);
+        return array_merge($params, [
+            'updated_at'=> date('Y-m-d H:i:s')
+        ]);
     }
 
     private function getValidator(Request $request)

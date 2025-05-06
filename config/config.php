@@ -1,7 +1,8 @@
 <?php
 
-use App\Framework\Twig\FlashExtension;
 use  Framework\Session\PHPSession;
+use App\Framework\Twig\FormExtension;
+use App\Framework\Twig\FlashExtension;
 use Framework\Session\SessionInterface;
 use Framework\Renderer\RendererInterface;
 use Framework\Router\RouterTwigExtension;
@@ -17,7 +18,10 @@ return [
     'twig.extensions' => [
         \DI\get(RouterTwigExtension::class),
         \DI\get(PagerfantaExtension::class),
-        \DI\get(FlashExtension::class)
+        \DI\get(FlashExtension::class),
+        \DI\get(FormExtension::class),
+
+
     ],
     SessionInterface::class => \DI\autowire(PHPSession::class),
     \Framework\Router::class => \DI\autowire(),
