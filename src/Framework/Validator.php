@@ -59,6 +59,9 @@ class Validator
     public function length(string $key, ?int $min, ?int $max = null): self
     {
         $value = $this->getValue($key);
+        if (!is_string($value) || trim($value) === '') {
+            return $this;
+        }
         $length = mb_strlen($value);
 
         if (
@@ -97,7 +100,7 @@ class Validator
     public function slug(string $key): self
     {
         $value = $this->getValue($key);
-        $pattern = '/^([a-z0-9]+-?)+$/';
+        $pattern = '/^[a-z0-9]+(-[a-z0-9]+)*$/';
 
         if (!is_null($value) && !preg_match($pattern, $value)) {
             $this->addError($key, 'slug');
