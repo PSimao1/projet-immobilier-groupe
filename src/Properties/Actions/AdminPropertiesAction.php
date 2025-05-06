@@ -2,6 +2,7 @@
 
 namespace App\Properties\Actions;
 
+use App\Framework\Validator;
 use Framework\Router;
 use App\Properties\Table\PropertyTable;
 use Framework\Actions\RouterAwareAction;
@@ -25,7 +26,7 @@ class AdminPropertiesAction
         if($request->getMethod()==='DELETE'){
             return $this->delete($request);
         }
-        if(substr((string)$request->getUri(), -3)==='new'){
+        if(substr((string)$request->getUri(), -3) ==='new'){
             return $this->create($request);
         }
         if($request->getAttribute('id')){
@@ -37,7 +38,7 @@ class AdminPropertiesAction
     public function index(Request $request)
     {
         $params = $request->getQueryParams();
-        $items = $this->propertyTable->findPaginated(12, $params['p' ] ?? 1);
+        $items = $this->propertyTable->findPaginated(12, $params['p'] ?? 1);
         
         return $this->renderer->render('@properties/admin/index', compact('items'));
     }
@@ -45,16 +46,25 @@ class AdminPropertiesAction
     public function edit(Request $request)
     {
         $item = $this->propertyTable->find($request->getAttribute('id'));
+        $errors = [];
 
         if($request->getMethod()=== 'POST'){
             $params = $this->getParams($request);
             $params['updated_at'] = date('Y-m-d H:i:s');
-            $this->propertyTable->update($item->id, $params);
-            $this->flash->success('L\'article a bien été modifié');
-            return $this->redirect('properties.admin.index');
 
+            $validator = $this->getValidator($request);
+            if ($validator->isValid()) {
+                $this->propertyTable->update($item->id, $params);
+                $this->flash->success('L\'article a bien été modifié');
+                return $this->redirect('properties.admin.index');
+            }
+            $errors = $validator->getErrors(); 
+            $params['id'] = $item->id;
+            $item = $params;
+           
         }
-        return $this->renderer->render('@properties/admin/edit', compact('item'));
+
+        return $this->renderer->render('@properties/admin/edit', compact('item', 'errors'));
     }
 
     public function create(Request $request)
@@ -65,13 +75,19 @@ class AdminPropertiesAction
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
-            $this->propertyTable->insert($params);
-            $this->flash->success('L\'article a bien été créé');
-
-            return $this->redirect('properties.admin.index');
+            
+            $validator = $this->getValidator($request);
+            if ($validator->isValid()) {
+                $this->propertyTable->insert($params);
+                $this->flash->success('L\'article a bien été créé');
+                return $this->redirect('properties.admin.index');
+            }
+            $item = $params;
+            $errors = $validator->getErrors();
+            
         }
-        $item = [];
-        return $this->renderer->render('@properties/admin/create', compact('item'));
+
+        return $this->renderer->render('@properties/admin/create', compact('item', 'errors'));
     }
 
     public function delete(Request $request)
@@ -81,7 +97,7 @@ class AdminPropertiesAction
         return $this->redirect('properties.admin.index');
     }
 
-    function getParams(Request $request)
+    private function getParams(Request $request)
     {
         return array_filter($request->getParsedBody(), function($key){
             return in_array($key, [
@@ -94,6 +110,16 @@ class AdminPropertiesAction
             ]);
             // on doit mettre tout pour la base de données??
         }, ARRAY_FILTER_USE_KEY);
+    }
+
+    private function getValidator(Request $request)
+    {
+        return (new Validator($request->getParsedBody()))
+            ->required('description', 'title', 'slug')
+            ->length('description', 10)
+            ->length('title', 2, 250)
+            ->length('slug', 2, 50)
+            ->slug('slug');
     }
 
 }
