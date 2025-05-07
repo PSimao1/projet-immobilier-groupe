@@ -108,7 +108,34 @@
 		{% include 'navbar.twig' %}
 
 		<!--=============== Breadcrumb =================-->
-		{% include 'thumb.twig' %}
+		<section class="breadcrumb padding-y-120">
+		<img src="/assets/images/thumbs/breadcrumb-img.png" alt="" class="breadcrumb__img">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-8">
+					<div class="breadcrumb__wrapper">
+						<h2 class="breadcrumb__title">
+							{% block page_title %}Cart{% endblock %}</h2>
+						<ul class="breadcrumb__list">
+							<li class="breadcrumb__item">
+								<a href="index" class="breadcrumb__link">
+									<i class="las la-home"></i>
+									Home</a>
+							</li>
+							<li class="breadcrumb__item">
+								<i class="fas fa-angle-right"></i>
+							</li>
+							<li class="breadcrumb__item">
+								<span class="breadcrumb__item-text">
+									Cart
+								</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 		<!--============================= Cart Section Start ===============================-->
 		<section class="cart padding-y-120">
@@ -128,7 +155,7 @@
 											</tr>
 										</thead>
 										<tbody>
-										<p>{{ cart|length }} éléments dans le panier</p>
+										<p>{{ cart|length }} elements in cart</p>
 											{% for item in cart %}
 												<tr>
 													<td>
@@ -197,36 +224,18 @@
 							<div class="card-body">
 								<h6 class="title mb-4">Cart Totals</h6>
 								<ul class="billing-list">
-									<li class="billing-list__item flx-between">
-										<span class="text text-poppins font-15">3 Rooms Manhattan × 2</span>
-										<span class="amount fw-semibold text-heading text-poppins">$321.95</span>
-									</li>
-									<li class="billing-list__item flx-between">
-										<span class="text text-poppins font-15">OE Replica Wheels × 2</span>
-										<span class="amount fw-semibold text-heading text-poppins">
-											$185.00
-										</span>
-									</li>
-									<li class="billing-list__item flx-between">
-										<span class="text text-poppins font-15">Wheel Bearing Retainer × 2</span>
-										<span class="amount fw-semibold text-heading text-poppins">
-											$130.00</span>
-									</li>
-									<li class="billing-list__item flx-between">
-										<span class="text text-poppins font-15">Shipping and Handing</span>
-										<span class="amount fw-semibold text-heading text-poppins">
-											$15.00</span>
-									</li>
-									<li class="billing-list__item flx-between">
-										<span class="text text-poppins font-15">Vat</span>
-										<span class="amount fw-semibold text-heading text-poppins">
-											$10.00</span>
-									</li>
+									{% for item in cart %}
+										<li class="billing-list__item flx-between">
+											<span class="text text-poppins font-15">{{ item.title }}</span>
+											<span class="amount fw-semibold text-heading text-poppins">{{ item.total_price }}</span>
+										</li>
+									{% endfor %}
 									<li class="billing-list__item flx-between">
 										<span class="text text-poppins fw-semibold text-heading">Order Total</span>
 										<span class="amount fw-semibold text-heading text-poppins">
-											$661.95</span>
+											510.15</span>
 									</li>
+									
 								</ul>
 								<button type="submit" class="btn btn-main w-100 mt-4">Proceed To Checkout</button>
 							</div>
