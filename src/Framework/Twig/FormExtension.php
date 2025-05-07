@@ -27,40 +27,35 @@ class FormExtension extends AbstractExtension
      * @param  array $options 
      * @return string
      */
-    public function field(array $context, string $key, $value, ?string $label= null, array $options = []): string
+    public function field(array $context, string $key, $value, ?string $label = null, array $options = []): string
     {
         $type = $options['type'] ?? 'text';
-        $error= $this->getErrorHTML($context, $key);
-        $class= 'form-group';
+        $error = $this->getErrorHtml($context, $key);
+        $class = 'form-group';
         $value = $this->convertValue($value);
-        $attributes= [
-            'class'=> trim('form-control ' . ($options['class'] ?? '')),
-            'title'=> $key,
-            'id'=> $key
+        $attributes = [
+            'class' => trim('form-control ' . ($options['class'] ?? '')),
+            'name'  => $key,
+            'id'    => $key
         ];
 
-        if ($value === null && isset($context['params'][$key])) {
-            $value = $context['params'][$key];
-        }
-
-        if($error)
-        {
+        if ($error) {
             $class .= ' has-danger';
             $attributes['class'] .= ' is-invalid';
-            
         }
-
-        if($type === 'textarea') {
-            $input= $this->textarea($value, $attributes);
+        if ($type === 'textarea') {
+            $input = $this->textarea($value, $attributes);
         } else {
             $input = $this->input($value, $attributes);
         }
         return "<div class=\"" . $class . "\">
-                    <label for=\"name\">{$label}</label>
-                    {$input}
-                    {$error}
-                </div>";
+              <label for=\"name\">{$label}</label>
+              {$input}
+              {$error}
+            </div>";
     }
+
+
     
     private function convertValue($value): string
     {
