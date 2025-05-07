@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Framework;
+namespace Framework;
 
 use App\Framework\Validator\ValidationError;
 
 class Validator
 {
+
     /**
      * @var array
      */
@@ -23,15 +24,14 @@ class Validator
 
     /**
      * Vérifie que les champs sont présents dans le tableau
-     * @param string...$keys
+     *
+     * @param string ...$keys
      * @return Validator
      */
     public function required(string ...$keys): self
     {
-        
         foreach ($keys as $key) {
             $value = $this->getValue($key);
-
             if (is_null($value)) {
                 $this->addError($key, 'required');
             }
@@ -41,6 +41,7 @@ class Validator
 
     /**
      * Vérifie que le champs n'est pas vide
+     *
      * @param string ...$keys
      * @return Validator
      */
@@ -48,7 +49,6 @@ class Validator
     {
         foreach ($keys as $key) {
             $value = $this->getValue($key);
-
             if (is_null($value) || empty($value)) {
                 $this->addError($key, 'empty');
             }
@@ -59,41 +59,31 @@ class Validator
     public function length(string $key, ?int $min, ?int $max = null): self
     {
         $value = $this->getValue($key);
-        if (!is_string($value) || trim($value) === '') {
-            return $this;
-        }
         $length = mb_strlen($value);
-
-        if (
-            !is_null($min) &&
+        if (!is_null($min) &&
             !is_null($max) &&
-            ( $length < $min || $length > $max )
+            ($length < $min || $length > $max)
         ) {
             $this->addError($key, 'betweenLength', [$min, $max]);
             return $this;
         }
-
-        if (
-            !is_null($min) &&
-            $length < $min 
+        if (!is_null($min) &&
+            $length < $min
         ) {
             $this->addError($key, 'minLength', [$min]);
             return $this;
         }
-
-        
-        if (
-            !is_null($max) &&
+        if (!is_null($max) &&
             $length > $max
         ) {
             $this->addError($key, 'maxLength', [$max]);
         }
-        
         return $this;
     }
 
     /**
      * Vérifie que l'élément est un slug
+     *
      * @param string $key
      * @return Validator
      */
@@ -101,7 +91,6 @@ class Validator
     {
         $value = $this->getValue($key);
         $pattern = '/^[a-z0-9]+(-[a-z0-9]+)*$/';
-
         if (!is_null($value) && !preg_match($pattern, $value)) {
             $this->addError($key, 'slug');
         }
@@ -113,11 +102,9 @@ class Validator
         $value = $this->getValue($key);
         $date = \DateTime::createFromFormat($format, $value);
         $errors = \DateTime::getLastErrors();
-
-        if ($errors ['error_count'] > 0 || $errors['warning_count'] > 0 || $date === false) {
+        if ($errors['error_count'] > 0 || $errors['warning_count'] > 0 || $date === false) {
             $this->addError($key, 'datetime', [$format]);
         }
-
         return $this;
     }
 
@@ -137,6 +124,7 @@ class Validator
 
     /**
      * Ajoute une erreur
+     *
      * @param string $key
      * @param string $rule
      * @param array $attributes
