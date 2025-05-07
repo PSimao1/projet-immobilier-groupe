@@ -2,8 +2,8 @@
 
 {% block body %}
 
-    <form action="{{ path('properties.admin.edit', {id:item.id}) }}" method="POST">
-        {% include '@properties/admin/form.twig' %}
+    <form action="{{ path(routePrefix ~ '.edit', {id:item.id}) }}" method="POST">
+        {% include viewPath ~ '/form.twig' %}
         <div class="d-flex justify-content-center mt-4">
             <button class="btn btn-primary px-4 py-2" type="submit"> Modifier</button>
         </div>

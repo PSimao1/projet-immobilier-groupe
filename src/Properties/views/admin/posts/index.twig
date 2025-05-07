@@ -3,7 +3,7 @@
 {% block body %}
 
     <p class="text-right">
-        <a href="{{ path('properties.admin.create') }}" class = "btn btn-primary">
+        <a href="{{ path(routePrefix ~ '.create') }}" class = "btn btn-primary">
             Ajouter un article
         </a>
     </p>
@@ -24,8 +24,8 @@
                 <td>{{ item.city }}</td>
                 <td>{{ item.description }}</td>
                 <td>
-                    <a href="{{ path('properties.admin.edit', {id:item.id}) }}" class="btn btn-primary">Editer</a>
-                    <form style="display: inline" action="{{ path('properties.admin.delete', {id:item.id}) }}" method="POST" id="tata">
+                    <a href="{{ path(routePrefix ~'.edit', {id:item.id}) }}" class="btn btn-primary">Editer</a>
+                    <form style="display: inline" action="{{ path(routePrefix ~ '.delete', {id:item.id}) }}" method="POST" id="tata">
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" class="btn btn-danger">Supprimer</button>
                     </form>
@@ -36,6 +36,6 @@
 
     </table>
 
-    {{ paginate(items, 'properties.admin.index') }}
+    {{ paginate(items, routePrefix ~ '.index') }}
 
 {% endblock %}

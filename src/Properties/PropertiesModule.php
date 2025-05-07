@@ -2,7 +2,7 @@
 
 namespace App\Properties;
 
-use App\Properties\Actions\AdminPropertiesAction;
+use App\Properties\Actions\PostCrudAction;
 use Framework\Module;
 use Framework\Router;     
 use Framework\Renderer\RendererInterface;
@@ -26,7 +26,7 @@ class PropertiesModule extends Module
 
         if($container->has('admin.prefix')){
             $prefix = $container->get('admin.prefix');
-            $router->crud("$prefix/properties",AdminPropertiesAction::class, 'properties.admin');
+            $router->crud("$prefix/properties",PostCrudAction::class, 'properties.admin');
         }
     }
 }
