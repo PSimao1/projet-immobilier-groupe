@@ -2,12 +2,12 @@
 
 namespace App\Properties\Actions;
 
-use App\Framework\Validator;
 use Framework\Router;
+use Framework\Validator;
+use Framework\Session\FlashService;
 use App\Properties\Table\PropertyTable;
 use Framework\Actions\RouterAwareAction;
 use Framework\Renderer\RendererInterface;
-use Framework\Session\FlashService;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class AdminPropertiesAction
@@ -46,19 +46,19 @@ class AdminPropertiesAction
     public function edit(Request $request)
     {
         $item = $this->propertyTable->find($request->getAttribute('id'));
-        $errors = [];
+        $errors= [];
 
-        if($request->getMethod()=== 'POST'){
-            $params = $this->getParams($request);  $validator = $this->getValidator($request);
+        if ($request->getMethod() === 'POST') {
+            $params = $this->getParams($request);
+            $validator = $this->getValidator($request);
             if ($validator->isValid()) {
                 $this->propertyTable->update($item->id, $params);
                 $this->flash->success('L\'article a bien été modifié');
                 return $this->redirect('properties.admin.index');
             }
-            $errors = $validator->getErrors(); 
+            $errors = $validator->getErrors();
             $params['id'] = $item->id;
             $item = $params;
-           
         }
 
         return $this->renderer->render('@properties/admin/edit', compact('item', 'errors'));
