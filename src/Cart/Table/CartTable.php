@@ -14,15 +14,16 @@ class CartTable
         $this->pdo = $pdo;
     }
 
-    /**
-     * Pagine les article
-     *
-     * @return \stdClass[]
-     */
     public function findAllWithProperties(): array
     {
         $stmt = $this->pdo->query(
-        'SELECT cart.*, properties.title, properties.adress, properties.zip_code, properties.city, properties.price
+        'SELECT 
+            cart.*,
+            properties.title,
+            properties.adress,
+            properties.zip_code,
+            properties.city,
+            properties.price
         FROM cart
         JOIN properties ON cart.property_id = properties.id
         ORDER BY cart.created_at DESC
@@ -40,20 +41,17 @@ class CartTable
     {
         $query = $this->pdo->prepare(
             'SELECT
-            cart.id,
-            properties.title,
-            properties.adress,
-            properties.zip_code,
-            properties.city,
-            properties.price
-            FROM
-            cart
-            WHERE
-            id = ?
-            JOIN
-            properties ON cart.id = properties.id'
+                cart.*,
+                properties.title,
+                properties.adress,
+                properties.zip_code,
+                properties.city,
+                properties.price
+            FROM cart
+            JOIN properties ON cart.property_id = properties.id
+            WHERE cart.id = ?'
         );
         $query->execute([$id]);
-        return $query->fetch();
-    }  
+        return $query->fetch(\PDO::FETCH_OBJ);
+    }
 }
