@@ -4,11 +4,10 @@ namespace App\Properties\Actions;
 
 use App\Blog\Entity\Post;
 use App\Framework\Actions\CrudAction;
+use App\Properties\Table\CategoryTable;
 use Framework\Router;
-use Framework\Validator;
 use Framework\Session\FlashService;
 use App\Properties\Table\PropertyTable;
-use Framework\Actions\RouterAwareAction;
 use Framework\Renderer\RendererInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -17,14 +16,30 @@ class PostCrudAction extends CrudAction
     protected $viewPath = "@properties/admin/posts";
 
     protected $routePrefix = "properties.admin";
+    
+    /**
+     *
+     * @var CategoryTable
+     */
+    private $categoryTable;
 
     public function __construct(RendererInterface $renderer,
                                 Router $router,
                                 PropertyTable $table,
-                                FlashService $flash)
+                                FlashService $flash,
+                                CategoryTable $categoryTable)
     {
         parent::__construct($renderer, $router, $table, $flash);
+        $this->categoryTable = $categoryTable;
     }
+
+    protected function formParams(array $params): array
+    {
+        $params['categories'] = $this->categoryTable->findList(); 
+        $params['categories'] ['12312323']= 'Categorie fake';
+        return $params;
+    }
+
 
     protected function getNewEntity()
     {
@@ -33,12 +48,11 @@ class PostCrudAction extends CrudAction
         return $post;
     }
 
-
-    protected function getParams(ServerRequestInterface $request)
+    protected function getParams(Request $request): array
     {
         $params= array_filter($request->getParsedBody(), function($key){
             return in_array($key, [
-                'slug', 'title', 'description', 'created_at', 'price', 'area', 'rooms', 'carrez',
+                'slug', 'title', 'description', 'category_id','created_at', 'price', 'area', 'rooms', 'carrez',
                 'prefix_area', 'land_area', 'bedrooms', 'bathrooms', 'garages',
                 'construction_year', 'ac', 'swimming_pool', 'lawn', 'barbecue',
                 'microwave', 'television', 'dryer', 'outdoor_shower', 'washer',
@@ -55,10 +69,11 @@ class PostCrudAction extends CrudAction
     protected function getValidator(Request $request)
     {
         return parent::getValidator($request)
-            ->required('description', 'title', 'slug')
+            ->required('description', 'title', 'slug', 'category_id')
             ->length('description', 10)
             ->length('title', 2, 250)
             ->length('slug', 2, 50)
+            ->exists('category_id', $this->categoryTable->getTable(), $this->categoryTable->getPdo())
             ->slug('slug');
     }
 

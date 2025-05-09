@@ -1,0 +1,14 @@
+{%  extends '@admin/layout.twig'%}
+
+{% block body %}
+
+<h1> Editer la catégorie {{item.name}}</h1>
+
+    <form action="{{ path(routePrefix ~ '.edit', {id:item.id}) }}" method="POST">
+        {% include viewPath ~ '/form.twig' %}
+        <div class="d-flex justify-content-center mt-4">
+            <button class="btn btn-primary px-4 py-2" type="submit"> Modifier</button>
+        </div>
+    </form>
+
+{% endblock %}

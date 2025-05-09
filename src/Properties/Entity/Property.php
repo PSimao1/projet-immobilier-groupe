@@ -220,7 +220,15 @@ class Property
      *
      * @var mixed
      */
-    public $category_id; 
+    public $category_id;
+        
+    /**
+     * category_name
+     *
+     * @var mixed
+     */
+    public $category_name;
+    
     /**
      * user_id
      *

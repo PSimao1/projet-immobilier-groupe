@@ -2,6 +2,7 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 {{ field('title', item.title ?? '', "Titre de l'article") }}
+                {{ field('category_id', item.category_id ?? '', "Catégorie", {option: categories}) }}
                 {{ field('slug', item.slug ?? '', "Lien") }}
                 {{ field('description', item.description ?? '', "Description", {type: 'textarea'}) }}
                 {{ field('created_at', item.created_at ?? '', "Date de création", {class: 'datepicker'}) }}

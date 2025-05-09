@@ -41,7 +41,7 @@ class Table
         $query= new PaginatedQuery(
             $this->pdo,
             $this->paginationQuery(),
-            'SELECT COUNT(id) FROM properties',
+            "SELECT COUNT(id) FROM {$this->table}",
             $this->entity
         );
         return (new Pagerfanta($query))
@@ -54,6 +54,25 @@ class Table
         return "SELECT * FROM {$this->table}";
 
     }
+    
+    /**
+     * Récupère une liste clef valeur de nos enregistrements
+     *
+     * 
+     */
+    public function findList(): array
+    {
+        $results = $this->pdo
+            ->query("SELECT id, name FROM {$this->table}")
+            ->fetchAll(\PDO::FETCH_NUM);
+        $list = [];
+        foreach($results as $result) {
+            $list[$result[0]] = $result[1];
+        }
+
+        return $list;
+    }
+
     /**
      * Récupère un élément à partir de son ID
      * @param int $id
@@ -121,5 +140,23 @@ class Table
     public function getTable(): string
     {
         return $this->table;
+    }
+    
+    /**
+     * Vérifie qu'un enregistrement existe
+     *
+     * @param $id
+     * @return bool
+     */
+    public function exists($id): bool
+    {
+       $stmt = $this->pdo->prepare("SELECT id FROM {$this->table} WHERE id = ?");
+       $stmt->execute([$id]);
+       return $stmt->fetchColumn() !== false;
+    }
+
+    public function getPdo(): \PDO
+    {
+        return $this->pdo;
     }
 }

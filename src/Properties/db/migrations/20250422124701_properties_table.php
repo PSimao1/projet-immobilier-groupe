@@ -69,11 +69,6 @@ final class PropertiesTable extends AbstractMigration
                 'delete' => 'CASCADE',
                 'update' => 'NO_ACTION'
             ])
-            ->addColumn('category_id', 'integer')
-            ->addForeignKey('category_id', 'categories', 'id', [
-                'delete' => 'CASCADE',
-                'update' => 'NO_ACTION'
-            ])
             ->create();
     }
 }

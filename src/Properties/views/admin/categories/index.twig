@@ -4,27 +4,21 @@
 
     <p class="text-right">
         <a href="{{ path(routePrefix ~ '.create') }}" class = "btn btn-primary">
-            Ajouter un article
+            Ajouter une catégorie
         </a>
     </p>
 
     <table class="table table-stripped">
         <thead>
         <tr>
-            <td>Titre</td>
-            <td>Catégories</td>
-            <td>Ville</td>
-            <td>Description</td>
+            <td>Name</td>
         </tr>
         </thead>
 
         <tbody>
         {% for item in items %}
             <tr>
-                <td>{{ item.title }}</td>
-                <td>{{ item.category_name }}</td>
-                <td>{{ item.city }}</td>
-                <td>{{ item.description }}</td>
+                <td>{{ item.name }}</td>
                 <td>
                     <a href="{{ path(routePrefix ~'.edit', {id:item.id}) }}" class="btn btn-primary">Editer</a>
                     <form style="display: inline" action="{{ path(routePrefix ~ '.delete', {id:item.id}) }}" method="POST" id="tata">
