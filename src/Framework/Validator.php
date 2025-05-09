@@ -2,6 +2,7 @@
 
 namespace Framework;
 
+use App\Framework\Database\Table;
 use App\Framework\Validator\ValidationError;
 
 class Validator
@@ -104,6 +105,17 @@ class Validator
         $errors = \DateTime::getLastErrors();
         if ($errors['error_count'] > 0 || $errors['warning_count'] > 0 || $date === false) {
             $this->addError($key, 'datetime', [$format]);
+        }
+        return $this;
+    }
+
+    public function exists(string $key, string $table, \PDO $pdo): self
+    {
+        $value = $this->getValue($key);
+        $stmt = $pdo->prepare("SELECT id FROM $table WHERE id = ?");
+        $stmt->execute([$value]);
+        if ($stmt->fetchColumn() === false) {
+            $this->addError($key, 'exists', [$table]);
         }
         return $this;
     }

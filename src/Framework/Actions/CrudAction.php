@@ -2,13 +2,14 @@
 
 namespace App\Framework\Actions;
 
+use Framework\Router;
+use Framework\Validator;
+use App\Framework\Database\Table;
+use Framework\Session\FlashService;
 use App\Properties\Table\PropertyTable;
+use Psr\Http\Message\ResponseInterface;
 use Framework\Actions\RouterAwareAction;
 use Framework\Renderer\RendererInterface;
-use Framework\Router;
-use Framework\Session\FlashService;
-use Framework\Validator;
-use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class CrudAction
@@ -25,7 +26,7 @@ class CrudAction
     private $router;
 
     /**
-     * @var mixed
+     * @var Table
      */
     private $table;
 
@@ -57,7 +58,7 @@ class CrudAction
     public function __construct(
          RendererInterface $renderer,
          Router $router,
-         $table,
+         Table $table,
          FlashService $flash
     ){
       $this->renderer = $renderer;
@@ -117,8 +118,12 @@ class CrudAction
             $params['id'] = $item->id;
             $item = $params;
         }
+        
 
-        return $this->renderer->render($this->viewPath . '/edit', compact('item', 'errors'));
+        return $this->renderer->render(
+            $this->viewPath . '/edit',
+            $this->formParams(compact('item', 'errors'))
+        );
     }
 
     /**
@@ -143,7 +148,10 @@ class CrudAction
             $errors = $validator->getErrors();
         }
 
-        return $this->renderer->render($this->viewPath . '/create', compact('item', 'errors'));
+        return $this->renderer->render(
+            $this->viewPath . '/create',
+            $this->formParams(compact('item', 'errors'))
+        );
     }
 
     public function delete(Request $request)
@@ -153,11 +161,11 @@ class CrudAction
         return $this->redirect('properties.admin.index');
     }
 
-    private function getParams(Request $request)
+    private function getParams(Request $request): array
     {
         return array_filter($request->getParsedBody(), function($key){
             return in_array($key, [
-                'slug', 'title', 'description', 'created_at', 'price', 'area', 'rooms', 'carrez',
+                'slug', 'title', 'name', 'description', 'created_at', 'price', 'area', 'rooms', 'carrez',
                 'prefix_area', 'land_area', 'bedrooms', 'bathrooms', 'garages',
                 'construction_year', 'ac', 'swimming_pool', 'lawn', 'barbecue',
                 'microwave', 'television', 'dryer', 'outdoor_shower', 'washer',
@@ -176,5 +184,16 @@ class CrudAction
     protected function getNewEntity()
     {
       return [];
+    }
+    
+    /**
+     * Permet de traiter les paramètres à envoyer à la vue
+     *
+     * @param $params
+     * @return array
+     */
+    protected function formParams(array $params): array
+    {
+        return $params;
     }
 }

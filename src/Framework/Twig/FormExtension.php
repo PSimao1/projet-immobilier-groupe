@@ -45,6 +45,8 @@ class FormExtension extends AbstractExtension
         }
         if ($type === 'textarea') {
             $input = $this->textarea($value, $attributes);
+        } else if(array_key_exists('options', $options)) {
+            $input = $this->select($value, $options['options'], $attributes);
         } else {
             $input = $this->input($value, $attributes);
         }
@@ -54,8 +56,6 @@ class FormExtension extends AbstractExtension
               {$error}
             </div>";
     }
-
-
     
     private function convertValue($value): string
     {
@@ -96,7 +96,7 @@ class FormExtension extends AbstractExtension
     }
     
     /**
-     * Génère un <textarea>
+     * Génère un textarea
      *
      * @param  string $value
      * @param  array $attributes
@@ -105,6 +105,24 @@ class FormExtension extends AbstractExtension
     private function textarea(?string $value, array $attributes): string
     {
         return "<textarea " . $this->getHtmlFromArray($attributes) . ">{$value}</textarea>";
+    }
+        
+    /**
+     * Génère un select
+     *
+     * @param $value
+     * @param $options
+     * @param $attributes
+     * @return string
+     */
+    private function select(?string $value, array $options, array $attributes)
+    {
+        $htmlOptions = array_reduce(array_keys($options),function (string $html, string $key) use ($options, $value) {
+            $params = ['value' => $key, 'selected' => $key === $value];
+            return $html . '<option ' .$this->getHtmlFromArray($params) . '>' . $options[$key] . '</option>';
+        }, "");
+        return "<select " . $this->getHtmlFromArray($attributes) . ">$htmlOptions</select>";
+        
     }
     
     /**
@@ -115,10 +133,18 @@ class FormExtension extends AbstractExtension
      */
     public function getHtmlFromArray(array $attributes)
     {
-        return implode( ' ', array_map(function($key, $value) {
-            return "$key=\"$value\"";
-        }, array_keys($attributes), $attributes));
+        $htmlParts = [];
+        foreach($attributes as $key => $value) {
+            if($value === true) {
+                $htmlParts[] = (string) $key;
+            } else if ($value !== false) {
+                $htmlParts[] = "$key=\"$value\"";
+            }
+        }
+        return implode( ' ', $htmlParts);
     }
+
+
 
     // private function checkbox
 }

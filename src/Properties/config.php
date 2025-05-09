@@ -1,6 +1,6 @@
 <?php
 
-
 return [
-    'properties.prefix' => '/properties'
+    'properties.prefix' => '/properties',
+
 ];

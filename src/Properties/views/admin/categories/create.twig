@@ -1,0 +1,11 @@
+{%  extends '@admin/layout.twig'%}
+
+{% block body %}
+    <form action="{{ path(routePrefix ~ '.create') }}" method="POST">
+        {% include viewPath ~ '/form.twig' %}
+        <div class="d-flex justify-content-center mt-4">
+            <button class="btn btn-primary px-4 py-2" type="submit"> Ajouter</button>
+        </div>
+    </form>
+
+{% endblock %}

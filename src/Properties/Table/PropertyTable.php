@@ -4,9 +4,6 @@ namespace App\Properties\Table;
 
 use App\Framework\Database\Table;
 use App\Properties\Entity\Property;
-use Pagerfanta\Pagerfanta;
-use App\Framework\Database\PaginatedQuery;
-
 class PropertyTable extends Table
 {
 
@@ -16,7 +13,10 @@ class PropertyTable extends Table
 
     protected function paginationQuery(): string
     {
-        return parent::paginationQuery() . " ORDER BY created_at DESC";
+        return "SELECT properties.id, properties.title, categories_admin.name category_name
+        FROM {$this->table}
+        LEFT JOIN categories_admin ON properties.category_id = categories_admin.id
+        ORDER BY properties.created_at DESC";
     }
 
 }

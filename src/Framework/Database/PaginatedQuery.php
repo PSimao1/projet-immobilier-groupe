@@ -15,7 +15,7 @@ class PaginatedQuery implements AdapterInterface
     /**
      * @var string|null
      */
-    private string $entity;
+    private ?string $entity;
        
     /**
      * PaginatedQuery constructeur

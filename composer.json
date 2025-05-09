@@ -5,7 +5,8 @@
         "psr-4": {
             "Framework\\": "src/Framework",
             "App\\": "src",
-            "Tests\\": "tests"
+            "Tests\\": "tests",
+            "Properties\\": "src/Properties/Actions"
         }
     },
     "authors": [
